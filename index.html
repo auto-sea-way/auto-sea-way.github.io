@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>auto-sea-way</title>
+<meta name="description" content="auto-sea-way is an open source sea router. It finds the shortest route over water between two coordinates, around land and through straits and canals. Compare its routes with four other open source sea routers on 45 test routes.">
+<meta property="og:title" content="auto-sea-way, open source sea routing">
+<meta property="og:description" content="Shortest routes over water between any two coordinates, compared with four other open source sea routers on 45 test routes.">
+<meta property="og:image" content="https://auto-sea-way.github.io/img/social-preview.png">
+<meta name="theme-color" content="#0e2f4f">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlow-sc-500.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="vendor/maplibre-gl-6.15.0/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="img/logo.svg" alt="" width="36" height="36">auto-sea-way</a>
+    <nav aria-label="Main">
+      <a href="#compare">Compare</a>
+      <a href="#results">Results</a>
+      <a href="#install">Install</a>
+      <a href="#used-by">Used by</a>
+      <a href="benchmarks.html">Benchmarks</a>
+      <a href="https://github.com/auto-sea-way/asw">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>The most accurate open source sea router we could test</h1>
+      <p class="lead">auto-sea-way finds the shortest route over water between two coordinates. The route goes around land and through straits and canals, and it starts and ends at the exact points you give.</p>
+      <p>It is one program and one map file for the whole planet, and it runs on your own server or phone. We compared it with four other open source sea routers on 45 routes. Its routes were the closest to the official distance tables and crossed the least land. Two of the other routers are much faster, all of them are much smaller, and you can see where they win below.</p>
+      <div class="actions">
+        <a class="button primary" href="#compare">Compare the routes</a>
+        <a class="button" href="#install">Install</a>
+        <a class="button" href="https://github.com/auto-sea-way/asw">Source on GitHub</a>
+      </div>
+    </div>
+    <aside class="titleblock" aria-labelledby="tb-title">
+      <div>
+<!-- build:titleblock -->
+<h2 id="tb-title">Test of 5 November 2026</h2>
+<p class="small">45 routes and 5 open source sea routers. Every router got the same coordinates.</p>
+<dl>
+<dt>17 of 22</dt><dd>port pairs where auto-sea-way is the closest to the NGA Pub 151 distance. The next router: 3.</dd>
+<dt>22 of 22</dt><dd>port pairs within 2&nbsp;% of Pub 151. The other routers: 12 to 15.</dd>
+<dt>1.6 nm</dt><dd>over land on all 45 routes together, in one harbour leg that auto-sea-way marks as land itself. The other routers: 74 to 670 nm.</dd>
+<dt>38 of 45</dt><dd>routes where auto-sea-way has the shortest of the lines that stay on water.</dd>
+</dl>
+<p class="links"><a href="#results">All results</a>, <a href="#others">where the others are better</a>, <a href="benchmarks.html#method">method</a></p>
+<!-- /build:titleblock -->
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="compare" id="compare">
+  <div class="wrap">
+    <h2>Compare the routes</h2>
+    <p>Choose a route. The map shows the line of every router, and red marks show where a line goes over land. Use the boxes in the table to show or hide a router.</p>
+    <div class="compare-grid">
+      <div>
+        <div class="chartframe"><div id="map" role="region" aria-label="Map of the chosen route"></div></div>
+        <p class="mapnote"><span class="legend-land"></span>Line over land. <span class="legend-end"></span>Land next to a requested point that is itself on land, for example a port position a little inland. Every router has to cross it, so it is not counted as over land.</p>
+        <p class="mapnote">Routes are for planning only. None of these routers knows water depth, bridges or traffic rules.</p>
+      </div>
+      <div class="panel">
+        <label for="route">Route</label>
+        <select id="route"></select>
+        <div class="facts" id="facts"></div>
+        <table class="rtable" id="rtable">
+          <caption>Results for this route</caption>
+          <thead><tr><th scope="col">Router</th><th scope="col">Length, nm</th><th scope="col" id="pubcol">vs Pub 151</th><th scope="col">Over land, nm</th><th scope="col">Time, ms</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="mapnote" id="routenote"></p>
+        <noscript><p>The map needs JavaScript. All numbers are on the <a href="benchmarks.html">benchmarks page</a>.</p></noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <h2>Results on all 45 routes</h2>
+    <p>The test has the 23 routes of the auto-sea-way benchmark and 22 port pairs from NGA Pub 151, <em>Distances Between Ports</em>, a published table of sea distances from the US National Geospatial-Intelligence Agency. Every router got the same coordinates, and every line was measured by the same code.</p>
+<!-- build:results -->
+<div class="scroll"><table>
+<caption>Five routers on the same 45 routes</caption>
+<thead><tr><th scope="col">Router</th><th scope="col">Closest to Pub 151</th><th scope="col">Within 2&nbsp;% of Pub 151</th><th scope="col">Mean difference from Pub 151</th><th scope="col">Largest difference</th><th scope="col">Routes over land</th><th scope="col">Over land, nm</th><th scope="col">Routes over land, Natural Earth</th><th scope="col">Shortest line on water</th><th scope="col">Median time per route</th></tr></thead>
+<tbody>
+<tr><th scope="row"><span class="swatch" style="border-top-color:#C8288C"></span><a href="https://github.com/auto-sea-way/asw">auto-sea-way</a> 0.11.1</th>
+<td>17</td><td>22 of 22</td><td>0.51&nbsp;%</td><td>1.5&nbsp;%</td>
+<td>4</td><td>1.6</td><td>0</td><td>38</td><td>34 ms</td></tr>
+<tr><th scope="row"><span class="swatch" style="border-top-color:#1F6FC2"></span><a href="https://github.com/genthalili/searoute-py">searoute-py</a> 1.6.0</th>
+<td>1</td><td>14 of 22</td><td>1.69&nbsp;%</td><td>4.4&nbsp;%</td>
+<td>17</td><td>73.6</td><td>1</td><td>0</td><td>0.66 ms</td></tr>
+<tr><th scope="row"><span class="swatch" style="border-top-color:#E07B00"></span><a href="https://github.com/connor-makowski/scgraph">scgraph</a> 3.6.0</th>
+<td>2</td><td>15 of 22</td><td>2.84&nbsp;%</td><td>24.9&nbsp;%</td>
+<td>29</td><td>669.5</td><td>14</td><td>1</td><td>0.06 ms</td></tr>
+<tr><th scope="row"><span class="swatch" style="border-top-color:#178A72"></span><a href="https://github.com/mayurrawte/searoute-ts">searoute-ts</a> 2.3.1</th>
+<td>1</td><td>12 of 22</td><td>2.12&nbsp;%</td><td>5.9&nbsp;%</td>
+<td>30</td><td>332.2</td><td>7</td><td>2</td><td>147 ms</td></tr>
+<tr><th scope="row"><span class="swatch" style="border-top-color:#6A4FB3"></span><a href="https://github.com/eurostat/searoute">eurostat/searoute</a> (inactive since 2022) 3.6</th>
+<td>3</td><td>12 of 22</td><td>2.43&nbsp;%</td><td>10.7&nbsp;%</td>
+<td>24</td><td>264.4</td><td>5</td><td>1</td><td>batch only</td></tr>
+</tbody></table></div>
+<!-- /build:results -->
+    <p class="small">Length is measured from the requested start to the requested end. Over land counts land more than 0.1 nm inside the OpenStreetMap coastline, and the Natural Earth column is an independent check with a coarser coastline. Time is the median time for one route on a Mac mini (Apple M2, 8 GB), with the map data already loaded. The <a href="benchmarks.html">benchmarks page</a> has the method, every number per route and the raw data.</p>
+  </div>
+</section>
+
+<section id="others">
+  <div class="wrap">
+    <h2>Where the other routers are better</h2>
+    <div class="cols">
+      <ul class="plain">
+        <li><strong>Speed.</strong> scgraph needs 0.06 ms for a route and searoute-py 0.66 ms (medians). auto-sea-way needs 34 ms for a typical route and up to 0.75 s for a long ocean crossing.</li>
+        <li><strong>Size.</strong> auto-sea-way needs a map file of 1.43 GB (538 MB to download). searoute-py is a 7 MB package, and scgraph with its network is about 2 MB.</li>
+        <li><strong>Memory.</strong> scgraph used 66 MB in this test. auto-sea-way maps its 1.43 GB file into memory, so plan for about 1.5 GB of RAM.</li>
+        <li><strong>Setup.</strong> The Python and JavaScript routers install with one <code>pip</code> or <code>npm</code> command and run inside your program. auto-sea-way runs as a separate server, or inside an app through its Swift and Kotlin bindings.</li>
+      </ul>
+      <div>
+        <p>On 4 of the 45 routes another router found a shorter line that stays on water:</p>
+        <ul class="plain">
+          <li><a class="water" href="#route=panama-canal">Panama Canal</a>: searoute-ts is 0.2 nm shorter.</li>
+          <li><a class="water" href="#route=corinth-canal">Corinth Canal</a>: scgraph is 0.1 nm shorter.</li>
+          <li><a class="water" href="#route=dardanelles">Dardanelles</a>: searoute-ts is 5.9 nm shorter. The start point is on the narrow land between the Gulf of Saros and the Sea of Marmara. auto-sea-way joins the water on the Saros side and goes around the peninsula.</li>
+          <li><a class="water" href="#route=honolulu-san-francisco">Honolulu to San Francisco</a>: the Pub 151 position for Honolulu is in the inner harbour, and the first leg of auto-sea-way crosses 0.4 nm of Sand Island to reach its graph. auto-sea-way marks this leg as a land leg in its answer. eurostat/searoute stays on water here.</li>
+        </ul>
+        <p>scgraph also routes on road and rail networks, and searoute-ts has port lists, arrival times and emissions estimates. auto-sea-way does only sea routes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap cols">
+    <div>
+      <h2>How it works</h2>
+      <p>auto-sea-way builds its graph from the OpenStreetMap land polygons. It covers the water of the whole planet with H3 hexagons: large cells in the open ocean and small cells along the coast and in narrow passages such as Suez, Panama, Kiel or the Corinth Canal. The planet graph has 39 million cells.</p>
+      <p>A route starts and ends at the exact coordinates you ask for. The router searches the graph, then makes the line straight where the water allows it. Every leg is checked against the coastline along its great circle, so a long leg does not cut a cape.</p>
+      <p>The other four routers in this test use MARNET, a network of shipping lanes published by Eurostat. The versions in this test have between 9,700 and 72,000 points. It has no detailed coastline, so a route joins the network some miles away from the requested point, and a straight leg between two network points can cross an island.</p>
+    </div>
+    <figure>
+      <img src="img/hexagons-marmaris-bay.webp" width="960" height="400" alt="Hexagon cells of the auto-sea-way graph in Marmaris Bay: large cells in open water and smaller cells near the coast" loading="lazy">
+      <figcaption>The graph near Marmaris: large cells in open water, small cells near the coast.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+    <p>The Docker image has the planet graph inside. Start it, wait until <code>/ready</code> answers, and ask for a route:</p>
+<pre><code>docker run -e ASW_API_KEY=changeme -p 3000:3000 ghcr.io/auto-sea-way/asw:0.11.1-full
+
+curl -H 'X-Api-Key: changeme' \
+  'http://localhost:3000/route?from=36.85,28.27&amp;to=36.39,25.46'</code></pre>
+    <p>The answer is JSON with the distance in nautical miles and the route as a GeoJSON line. <code>land_legs</code> lists the legs that go over land, here the last leg to the requested point in the town of Fira on Santorini:</p>
+<pre><code>{"distance_nm": 148.6, "raw_hops": 201, "smooth_hops": 12,
+ "geometry": {"type": "LineString", "coordinates": [[28.27, 36.85], [28.2648, 36.8091], ...]},
+ "shore_buffer_nm": 0.0, "land_legs": [13]}</code></pre>
+    <ul class="plain">
+      <li>Options: <code>shore_buffer</code> keeps the route away from the coast where it can, <code>canals=false</code> goes around the man-made canals, and <code>arctic=true</code> opens the Northern Sea Route and the Northwest Passage.</li>
+      <li>Binaries for Linux (x86_64 and arm64) and macOS, and the graph file, are on the <a href="https://github.com/auto-sea-way/asw/releases/latest">releases page</a>.</li>
+      <li>For iOS and Android apps, every release has Swift and Kotlin bindings that route on the phone without a server.</li>
+      <li>The <a href="https://github.com/auto-sea-way/asw#readme">README</a> has the full API and the deployment guide.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="used-by">
+  <div class="wrap">
+    <h2>Used by</h2>
+    <div class="projects">
+      <article class="project">
+        <h3><img src="img/rhumb-logbook-icon.png" alt="" width="40" height="40">Rhumb Logbook</h3>
+        <img class="shot phone" src="img/rhumb-logbook-passage.webp" width="480" height="1043" loading="lazy" alt="Rhumb Logbook showing a passage to Preveza: the sailed track in red and the shortest route from auto-sea-way as a dashed blue line, 70 nm sailed and 68 nm shortest route">
+        <p>A sailing logbook app that records your sea time by itself. Next to the distance you sailed, it shows the shortest route over water from auto-sea-way, which runs on the phone.</p>
+        <p class="links"><a href="https://rhumbapp.com/logbook/">Website</a><a href="https://play.google.com/store/apps/details?id=com.rhumbapp.logbook">Google Play</a></p>
+      </article>
+      <article class="project">
+        <h3><img src="img/yacht-cabin-icon.png" alt="" width="40" height="40">Yacht Cabin</h3>
+        <p>An app that connects private boat owners with volunteer crew who share the journey and the costs. It uses auto-sea-way on its server to draw the sea route between the stops of a trip.</p>
+        <p class="links"><a href="https://ycabin.app/">Website</a><a href="https://apps.apple.com/app/id6469003484">App Store</a><a href="https://play.google.com/store/apps/details?id=boats.yesplease.app.yachtcabin">Google Play</a></p>
+      </article>
+      <article class="project">
+        <h3>AvNav plugin</h3>
+        <img class="shot" src="img/avnav-saved-route.webp" width="960" height="600" loading="lazy" alt="AvNav chart page with a route made by the plugin from Marmaris towards Kos, saved as a normal AvNav route with its waypoints">
+        <p>A plugin for AvNav, the navigation software that runs on a Raspberry Pi on board. It adds a <q>To here</q> button that makes a route over water from the boat to the chart crosshair, offline.</p>
+        <p class="links"><a href="https://github.com/auto-sea-way/avnav-plugin">GitHub</a></p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="limits">
+  <div class="wrap">
+    <div class="caution">
+      <h2>Planning only</h2>
+      <p>Routes are for planning and must not be used for navigation. auto-sea-way knows only where the land is. It has no water depth, so a route can cross shallows, rocks or reefs. It does not know bridges, locks, traffic separation schemes or areas where you may not go, and small harbour details can be missing because the OpenStreetMap coastline is its only source.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>auto-sea-way is open source under the MIT and Apache 2.0 licenses. <a href="https://github.com/auto-sea-way/asw">Source</a>, <a href="https://github.com/auto-sea-way/asw/releases">releases</a>, <a href="https://github.com/auto-sea-way/asw/issues">issues</a>, <a href="benchmarks.html">benchmarks and method</a>.</p>
+    <p>Map: <a href="https://openfreemap.org">OpenFreeMap</a> © <a href="https://www.openmaptiles.org/">OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>. Coastlines for the land check: OpenStreetMap land polygons from <a href="https://osmdata.openstreetmap.de/">osmdata.openstreetmap.de</a> (ODbL) and <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain). Port distances: NGA Pub 151, <em>Distances Between Ports</em>.</p>
+  </div>
+</footer>
+</body>
+</html>
