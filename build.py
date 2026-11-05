@@ -75,7 +75,7 @@ def titleblock():
 <dl>
 <dt>{a['closest']} of {len(PUB)}</dt><dd>port pairs where auto-sea-way is the closest to the NGA Pub 151 distance. The next router: {max(o['closest'] for o in others)}.</dd>
 <dt>{a['within2']} of {len(PUB)}</dt><dd>port pairs within 2&nbsp;% of Pub 151. The other routers: {min(o['within2'] for o in others)} to {max(o['within2'] for o in others)}.</dd>
-<dt>{f1(a['land_way'])} nm</dt><dd>over land on all 45 routes together, in one harbour leg that auto-sea-way marks as land itself. The other routers: {min(o['land_way'] for o in others):,.0f} to {max(o['land_way'] for o in others):,.0f} nm.</dd>
+<dt>{f1(a['land_way'])} nm</dt><dd>over land on all 45 routes together. It is the same 0.4&nbsp;nm leg in Honolulu harbour on four routes, and auto-sea-way marks it as land itself. The other routers: {min(o['land_way'] for o in others):,.0f} to {max(o['land_way'] for o in others):,.0f} nm.</dd>
 <dt>{a['shortest']} of 45</dt><dd>routes where auto-sea-way has the shortest of the lines that stay on water.</dd>
 </dl>
 <p class="links"><a href="#results">All results</a>, <a href="#others">where the others are better</a>, <a href="benchmarks.html#method">method</a></p>"""
