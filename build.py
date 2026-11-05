@@ -99,7 +99,7 @@ def results():
 
 
 def route_link(r):
-    return f'<a class="water" href="index.html#route={r["id"]}">{e(label(r))}</a>'
+    return f'<a class="water" href="./#{r["id"]}">{e(label(r))}</a>'
 
 
 def per_route_table(caption, routes, cell, extra_cols=()):

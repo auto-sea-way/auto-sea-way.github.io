@@ -1,7 +1,12 @@
-import { Map, NavigationControl, AttributionControl, LngLatBounds } from './vendor/maplibre-gl-6.15.0/maplibre-gl.mjs';
+const { Map, NavigationControl, AttributionControl, LngLatBounds } = await import(window.ASW_MAPLIBRE || './vendor/maplibre-gl-6.15.0/maplibre-gl.mjs');
 
 const ORDER = ['eurostat', 'searoute-ts', 'scgraph', 'searoute-py', 'asw']; // drawing order, asw on top
 const STYLE = { light: 'https://tiles.openfreemap.org/styles/positron', dark: 'https://tiles.openfreemap.org/styles/dark' };
+// window.ASW_BASEMAP = 'local' draws Natural Earth land from data/land.json instead of tiles (for previews without network access).
+const localStyle = (t) => ({ version: 8, sources: { basemap: { type: 'geojson', data: 'data/land.json', attribution: 'Natural Earth' } },
+  layers: [{ id: 'water', type: 'background', paint: { 'background-color': t === 'dark' ? '#16324a' : '#dbe8f1' } },
+    { id: 'basemap-land', type: 'fill', source: 'basemap', paint: { 'fill-color': t === 'dark' ? '#3a3d33' : '#efe6c4', 'fill-outline-color': t === 'dark' ? '#5b5e50' : '#c9b984' } }] });
+const styleFor = (t) => (window.ASW_BASEMAP === 'local' ? localStyle(t) : STYLE[t]);
 const GROUPS = [['sailing', 'Sailing routes'], ['passage', 'Passages'], ['pub151', 'NGA Pub 151 port pairs']];
 
 const $ = (s) => document.querySelector(s);
@@ -26,18 +31,18 @@ async function main() {
     for (const r of summary.routes.filter((x) => x.set === set)) g.append(new Option(r.name.replace(' - ', ' to ').replace('-', ' to '), r.id));
     sel.append(g);
   }
-  sel.addEventListener('change', () => { location.hash = 'route=' + sel.value; });
+  sel.addEventListener('change', () => { location.hash = sel.value; });
   window.addEventListener('hashchange', fromHash);
 
   try {
     map = new Map({
-      container: 'map', style: STYLE[theme()], center: [20, 30], zoom: 1.5,
+      container: 'map', style: styleFor(theme()), center: [20, 30], zoom: 1.5,
       attributionControl: false, cooperativeGestures: matchMedia('(pointer: coarse)').matches,
     });
     map.addControl(new NavigationControl({ showCompass: false }), 'top-right');
     map.addControl(new AttributionControl({ compact: false }));
     map.on('style.load', () => { addLayers(); if (current) draw(current); });
-    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => map.setStyle(STYLE[theme()]));
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => map.setStyle(styleFor(theme())));
   } catch (e) {
     $('#map').innerHTML = '<p style="padding:1rem">The map could not start in this browser (it needs WebGL). The numbers for each route are in the table.</p>';
     map = null;
@@ -46,10 +51,12 @@ async function main() {
 }
 
 function fromHash() {
-  const m = location.hash.match(/route=([a-z0-9-]+)/);
-  const id = m && summary.routes.some((r) => r.id === m[1]) ? m[1] : 'aegean-hop';
+  const h = location.hash.slice(1);
+  const hit = summary.routes.some((r) => r.id === h);
+  if (!hit && current) return; // a section link such as #install
+  const id = hit ? h : 'aegean-hop';
   $('#route').value = id;
-  if (m) document.getElementById('compare').scrollIntoView({ block: 'start' });
+  if (hit) document.getElementById('compare').scrollIntoView({ block: 'start' });
   load(id);
 }
 
@@ -57,7 +64,7 @@ async function load(id) {
   const geo = await fetch(`data/routes/${id}.json`).then((r) => r.json());
   current = geo;
   table(id);
-  if (map && map.isStyleLoaded() && map.getSource('lines')) draw(geo);
+  if (map && map.getSource('lines')) draw(geo); // otherwise style.load draws it
 }
 
 function addLayers() {

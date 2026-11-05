@@ -82,8 +82,8 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 .small { font-size: 0.95rem; color: var(--muted); }
 em.water, .water { font-style: italic; }
 
-.wrap { max-width: var(--wide); margin: 0 auto; padding: 0 1rem; }
-@media (min-width: 40rem) { .wrap { padding: 0 2rem; } }
+.wrap { max-width: var(--wide); margin: 0 auto; padding-left: max(1rem, env(safe-area-inset-left, 0px)); padding-right: max(1rem, env(safe-area-inset-right, 0px)); }
+@media (min-width: 40rem) { .wrap { padding-left: max(2rem, env(safe-area-inset-left, 0px)); padding-right: max(2rem, env(safe-area-inset-right, 0px)); } }
 section { padding: 4rem 0; }
 section + section { border-top: 1px solid var(--rule); }
 
@@ -163,7 +163,8 @@ tr.best td.best, td.best { font-weight: 600; }
 .rtable tbody tr.dim { opacity: 0.45; }
 .rtable input { width: 1.05rem; height: 1.05rem; margin: 0 0.35rem 0 0; vertical-align: -0.15em; accent-color: var(--ink); }
 .rtable .land { color: var(--danger); font-weight: 600; }
-.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 2.5rem; }
+td.land { color: var(--danger); font-weight: 600; }
 .scroll table { min-width: 44rem; }
 .note-list { font-family: var(--sans); font-size: 1rem; padding-left: 1.1rem; max-width: var(--measure); }
 
