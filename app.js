@@ -8,6 +8,8 @@ const styleFor = (t) => (window.ASW_BASEMAP === 'local' ? localStyle(t) : STYLE[
 const GROUPS = [['sailing', 'Sailing routes'], ['passage', 'Passages'], ['pub151', 'NGA Pub 151 port pairs']];
 
 const $ = (s) => document.querySelector(s);
+// No autoplay for people who ask for less motion; the controls still play it.
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) $('.film video')?.pause();
 const fmt = (x, d = 1) => (x == null ? '' : x.toLocaleString('en-GB', { minimumFractionDigits: d, maximumFractionDigits: d }));
 const theme = () => {
   const t = document.documentElement.dataset.theme;

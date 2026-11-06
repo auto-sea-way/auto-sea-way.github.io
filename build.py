@@ -73,24 +73,6 @@ def name(k):
     return f'<a href="{t["url"]}">{e(t["name"])}</a>{extra}'
 
 
-def titleblock():
-    a = ST["asw"]
-    others = [ST[k] for k in ORDER[1:]]
-    best = lambda key: max(o[key] for o in others)
-    return f"""<h2 id="tb-title">Six open source sea routers, 45 routes</h2>
-<p class="small">Tested on 5 and 6 November 2026. Every router got the same start and end points.</p>
-<table class="tb">
-<thead><tr><td></td><th scope="col">auto-sea-way</th><th scope="col">Best other router</th></tr></thead>
-<tbody>
-<tr><th scope="row">Stays on water, {len(SHORT)} short routes</th><td>{a['water_short']}</td><td>{best('water_short')}</td></tr>
-<tr><th scope="row">Stays on water, all 45 routes</th><td>{a['water_all']}*</td><td>{best('water_all')}</td></tr>
-<tr><th scope="row">Mean difference from official distances</th><td>{a['mean_abs']:.1f}&nbsp;%</td><td>{min(o['mean_abs'] for o in others):.1f}&nbsp;%</td></tr>
-<tr><th scope="row">Land crossed, all routes</th><td>{f1(a['land_way'])}&nbsp;nm*</td><td>{min(o['land_way'] for o in others):,.0f}&nbsp;nm</td></tr>
-</tbody></table>
-<p class="small note">Short routes are under 200&nbsp;nm: straits, canals and coastal crossings. auto-sea-way kept 1&nbsp;nm off the coast where the water allows it. *&nbsp;One 0.4&nbsp;nm leg in Honolulu harbour, which auto-sea-way reports as land.</p>
-<p class="links"><a href="#results">All results</a>, <a href="#others">where the others are better</a>, <a href="benchmarks.html#method">method</a></p>"""
-
-
 def results():
     rows = []
     for k in ORDER:
@@ -212,7 +194,7 @@ def fill(path, parts):
     p.write_text(s)
 
 
-fill("index.html", {"titleblock": titleblock(), "results": results()})
+fill("index.html", {"results": results()})
 fill("benchmarks.html", {
     "tools": tools_table(),
     "length": per_route_table("Length from the requested start to the requested end, nm", ROUTES, length_cell,
