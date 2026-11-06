@@ -66,6 +66,7 @@ function fromHash() {
 
 async function load(id) {
   const geo = await fetch(`data/routes/${id}.json`).then((r) => r.json());
+  if ($('#route').value !== id) return; // a newer route was chosen while this one loaded
   current = geo;
   table(id);
   if (map && map.getSource('lines')) draw(geo); // otherwise style.load draws it
