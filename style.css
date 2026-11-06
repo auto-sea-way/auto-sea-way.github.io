@@ -125,13 +125,13 @@ a.gh:hover { color: var(--gh-fg); background: var(--gh-bg); border-color: var(--
 .button:hover { color: var(--paper); background: var(--ink); border-color: var(--ink); }
 
 /* The video is framed like the title block of a paper chart: a double neat line. */
-.film { margin: 0; border: 1px solid var(--ink); padding: 4px; }
+.film { margin: 0; max-width: 31rem; border: 1px solid var(--ink); padding: 4px; } /* about its width next to the text, also on one column */
 .film video { display: block; width: 100%; height: auto; border: 2px solid var(--ink); background: #fff; }
 .film figcaption { margin: 0.6rem 0.25rem 0.2rem; font: 400 0.95rem/1.4 var(--sans); color: var(--muted); }
 
 /* compare */
 .compare { background: var(--shallow); }
-.compare-grid { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.compare-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
 @media (min-width: 62rem) { .compare-grid { grid-template-columns: minmax(0, 1fr) 24rem; } }
 /* Graduated border like the latitude and longitude scale on a chart. */
 .chartframe {
@@ -172,6 +172,7 @@ tr.best td.best, td.best { font-weight: 600; }
 .rtable tbody tr.dim { opacity: 0.45; }
 .rtable input { width: 1.05rem; height: 1.05rem; margin: 0 0.35rem 0 0; vertical-align: -0.15em; accent-color: var(--ink); }
 .rtable .land { color: var(--danger); font-weight: 600; }
+@media (max-width: 24rem) { .rtable th, .rtable td { padding-left: 0.25rem; padding-right: 0.25rem; } } /* 320 px phones */
 .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 2.5rem; }
 td.land { color: var(--danger); font-weight: 600; }
 .scroll table { min-width: 44rem; }
