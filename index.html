@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>auto-sea-way: the most accurate open source sea router</title>
-<meta name="description" content="auto-sea-way is the most accurate open source sea router, from the marina to the open ocean. Its routes start and end at the exact points you give and go through narrow channels. Compare it with five other open source sea routers on 45 routes.">
+<meta name="description" content="auto-sea-way is the most accurate open source sea router, from the marina to the open ocean. Its routes stay on water, also in small bays and narrow channels, and start and end at the exact points you give. Compare it with five other open source sea routers on 45 routes.">
 <meta property="og:title" content="auto-sea-way: the most accurate open source sea router">
 <meta property="og:description" content="Sea routes from the marina to the open ocean, compared with five other open source sea routers on 45 routes.">
 <meta property="og:image" content="https://auto-sea-way.github.io/img/social-preview.png">
@@ -37,8 +37,8 @@
   <div class="wrap">
     <div>
       <h1>The most accurate open source sea router, from the marina to the open ocean</h1>
-      <p class="lead">auto-sea-way gives your app a route between two points on the water, for example a marina and an anchorage on the next island. The route starts and ends exactly at those points and goes around the land, with its length in nautical miles.</p>
-      <p>The other open source sea routers we found work on shipping lane networks or on a grid of about 5 km. auto-sea-way uses cells about 150 m across along the coast, so its routes can start at the marina and go through narrow channels. One 1.4 GB file covers the whole planet, and it runs on your own server or offline on the phone.</p>
+      <p class="lead">auto-sea-way gives your app a route between two points on the water, for example a marina and an anchorage on the next island. The route starts and ends exactly at those points, stays on water and can keep a distance from the coast.</p>
+      <p>The other open source sea routers we found work on shipping lane networks or on a grid of about 5 km, so near the coast their lines often cut over land. auto-sea-way uses cells about 150 m across along the coast. It finds the shortest route that stays on water and keeps off the coast, also in small bays and narrow channels. One 1.4 GB file covers the whole planet, and it runs on your own server or offline on the phone.</p>
       <div class="actions">
         <a class="button primary" href="#compare">Compare the routes</a>
         <a class="button gh" href="https://github.com/auto-sea-way/asw"><svg class="gh-mark" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M6.766 11.328c-2.063-.25-3.516-1.734-3.516-3.656 0-.781.281-1.625.75-2.188-.203-.515-.172-1.609.063-2.062.625-.078 1.468.25 1.968.703.594-.187 1.219-.281 1.985-.281.765 0 1.39.094 1.953.265.484-.437 1.344-.765 1.969-.687.218.422.25 1.515.046 2.047.5.593.766 1.39.766 2.203 0 1.922-1.453 3.375-3.547 3.64.531.344.89 1.094.89 1.954v1.625c0 .468.391.734.86.547C13.781 14.359 16 11.53 16 8.03 16 3.61 12.406 0 7.984 0 3.563 0 0 3.61 0 8.031a7.88 7.88 0 0 0 5.172 7.422c.422.156.828-.125.828-.547v-1.25c-.219.094-.5.156-.75.156-1.031 0-1.64-.562-2.078-1.609-.172-.422-.36-.672-.719-.719-.187-.015-.25-.093-.25-.187 0-.188.313-.328.625-.328.453 0 .844.281 1.25.86.313.452.64.655 1.031.655s.641-.14 1-.5c.266-.265.47-.5.657-.656"/></svg>View on GitHub</a>
@@ -52,12 +52,12 @@
 <table class="tb">
 <thead><tr><td></td><th scope="col">auto-sea-way</th><th scope="col">Best other router</th></tr></thead>
 <tbody>
-<tr><th scope="row">Shortest by sea, 16 short routes</th><td>15</td><td>1</td></tr>
-<tr><th scope="row">Shortest by sea, all 45 routes</th><td>40</td><td>1</td></tr>
-<tr><th scope="row">Closest to official distances, 22 port pairs</th><td>15</td><td>2</td></tr>
+<tr><th scope="row">Stays on water, 16 short routes</th><td>16</td><td>10</td></tr>
+<tr><th scope="row">Stays on water, all 45 routes</th><td>41*</td><td>19</td></tr>
+<tr><th scope="row">Mean difference from official distances</th><td>0.4&nbsp;%</td><td>1.7&nbsp;%</td></tr>
 <tr><th scope="row">Land crossed, all routes</th><td>1.6&nbsp;nm*</td><td>394&nbsp;nm</td></tr>
 </tbody></table>
-<p class="small note">Short routes are under 200&nbsp;nm. A route that crosses land does not count as by sea. *&nbsp;One 0.4&nbsp;nm leg in Honolulu harbour, which auto-sea-way reports as land.</p>
+<p class="small note">Short routes are under 200&nbsp;nm: straits, canals and coastal crossings. auto-sea-way kept 1&nbsp;nm off the coast where the water allows it. *&nbsp;One 0.4&nbsp;nm leg in Honolulu harbour, which auto-sea-way reports as land.</p>
 <p class="links"><a href="#results">All results</a>, <a href="#others">where the others are better</a>, <a href="benchmarks.html#method">method</a></p>
 <!-- /build:titleblock -->
       </div>
@@ -96,23 +96,23 @@
     <p>The 23 routes of the auto-sea-way benchmark and 22 port pairs from NGA Pub 151, <em>Distances Between Ports</em>, the US table of sea distances. Every router got the same coordinates, and the same code measured every line.</p>
 <!-- build:results -->
 <div class="scroll"><table aria-label="Results of 6 routers on 45 routes">
-<thead><tr><th scope="col">Router</th><th scope="col">Shortest by sea, all 45 routes</th><th scope="col">Shortest by sea, 16 short routes</th><th scope="col">Closest to Pub 151, 22 pairs</th><th scope="col">Mean difference from Pub 151</th><th scope="col">Routes over land</th><th scope="col">Median time per route</th></tr></thead>
+<thead><tr><th scope="col">Router</th><th scope="col">Stays on water, 16 short routes</th><th scope="col">Stays on water, all 45 routes</th><th scope="col">Mean difference from Pub 151</th><th scope="col">Closest to Pub 151, 22 pairs</th><th scope="col">Land crossed, nm</th><th scope="col">Median time per route</th></tr></thead>
 <tbody>
 <tr><th scope="row"><span class="swatch" style="border-top-color:#C8288C"></span><a href="https://github.com/auto-sea-way/asw">auto-sea-way</a> <span class="ver">0.11.1</span></th>
-<td>40</td><td>15</td><td>15</td><td>0.51&nbsp;%</td><td>4</td><td>34 ms</td></tr>
+<td>16</td><td>41</td><td>0.40&nbsp;%</td><td>15</td><td>1.6</td><td>44 ms</td></tr>
 <tr><th scope="row"><span class="swatch" style="border-top-color:#1F6FC2"></span><a href="https://github.com/genthalili/searoute-py">searoute-py</a> <span class="ver">1.6.0</span></th>
-<td>0</td><td>0</td><td>2</td><td>1.69&nbsp;%</td><td>26</td><td>0.66 ms</td></tr>
+<td>10</td><td>19</td><td>1.69&nbsp;%</td><td>2</td><td>393.5</td><td>0.66 ms</td></tr>
 <tr><th scope="row"><span class="swatch" style="border-top-color:#E07B00"></span><a href="https://github.com/connor-makowski/scgraph">scgraph</a> <span class="ver">3.6.0</span></th>
-<td>0</td><td>0</td><td>0</td><td>2.84&nbsp;%</td><td>34</td><td>0.06 ms</td></tr>
+<td>9</td><td>11</td><td>2.84&nbsp;%</td><td>0</td><td>923.9</td><td>0.06 ms</td></tr>
 <tr><th scope="row"><span class="swatch" style="border-top-color:#178A72"></span><a href="https://github.com/mayurrawte/searoute-ts">searoute-ts</a> <span class="ver">2.3.1</span></th>
-<td>0</td><td>0</td><td>0</td><td>2.12&nbsp;%</td><td>36</td><td>147 ms</td></tr>
+<td>5</td><td>9</td><td>2.12&nbsp;%</td><td>0</td><td>714.8</td><td>147 ms</td></tr>
 <tr><th scope="row"><span class="swatch" style="border-top-color:#6A4FB3"></span><a href="https://github.com/eurostat/searoute">eurostat</a> <span class="ver">3.6</span></th>
-<td>1</td><td>0</td><td>2</td><td>2.43&nbsp;%</td><td>28</td><td>batch only</td></tr>
+<td>9</td><td>17</td><td>2.43&nbsp;%</td><td>2</td><td>548.5</td><td>batch only</td></tr>
 <tr><th scope="row"><span class="swatch" style="border-top-color:#0000F0"></span><a href="https://github.com/arcnautical/maritime-routing">arcnautical</a> <span class="ver">1.0.1</span></th>
-<td>1</td><td>1</td><td>0</td><td>5.41&nbsp;%</td><td>38</td><td>56 ms</td></tr>
+<td>6</td><td>7</td><td>5.41&nbsp;%</td><td>0</td><td>17,183.8</td><td>56 ms</td></tr>
 </tbody></table></div>
 <!-- /build:results -->
-    <p class="small">A line that goes over land is not compared. Over land means more than 0.1 nm inside the OpenStreetMap coastline. Time is the median for one route on a Mac mini (Apple M2). The <a href="benchmarks.html">benchmarks page</a> has the method and every number.</p>
+    <p class="small">A line that goes over land is not compared. Over land means more than 0.1 nm inside the OpenStreetMap coastline. auto-sea-way ran with a 1 nm shore buffer, the other routers with their defaults. Time is the median for one route on a Mac mini (Apple M2). The <a href="benchmarks.html">benchmarks page</a> has the method and every number.</p>
   </div>
 </section>
 
@@ -121,17 +121,20 @@
     <h2>Where the other routers are better</h2>
     <div class="cols">
       <ul class="plain">
-        <li><strong>Speed.</strong> scgraph needs 0.06 ms for a route and searoute-py 0.66 ms (medians). auto-sea-way needs 34 ms for a typical route and up to 0.75 s for a long ocean crossing.</li>
+        <li><strong>Speed.</strong> scgraph needs 0.06 ms for a route and searoute-py 0.66 ms (medians). auto-sea-way needs 44 ms for a typical route and up to 0.83 s for a long ocean crossing.</li>
         <li><strong>Size.</strong> auto-sea-way needs a 1.43 GB map file (538 MB to download) and about 1.5 GB of memory. The other routers take 0.6 to 45 MB on disk and used 66 to 700 MB of memory in this test.</li>
         <li><strong>Setup.</strong> The Python and JavaScript routers install with <code>pip</code> or <code>npm</code> and run inside your program. auto-sea-way runs as a separate server, or in an app through its Swift and Kotlin bindings.</li>
       </ul>
       <div>
-        <p>On 2 of the 45 routes another router found a shorter line that stays on water:</p>
+        <p><strong>Shorter lines.</strong> auto-sea-way kept 1 nm off the coast where the water allows it, so a line that passes closer to the coast can be shorter. On 4 of the 45 routes another router has a shorter line that stays on water:</p>
         <ul class="plain">
-          <li><a class="water" href="#singapore-strait">Singapore Strait</a>: @arcnautical/maritime-routing is 1.3 nm shorter.</li>
-          <li><a class="water" href="#honolulu-san-francisco">Honolulu to San Francisco</a>: the Pub 151 position for Honolulu is in the inner harbour, and auto-sea-way crosses 0.4 nm of Sand Island to reach it. It marks this leg as land in its answer. eurostat/searoute stays on water.</li>
+          <li><a class="water" href="#baltic-crossing">Baltic crossing</a>: eurostat/searoute is 0.2 nm shorter.</li>
+          <li><a class="water" href="#malacca-strait">Malacca Strait</a>: @arcnautical/maritime-routing is 3.1 nm shorter.</li>
+          <li><a class="water" href="#singapore-strait">Singapore Strait</a>: @arcnautical/maritime-routing is 3.9 nm shorter.</li>
+          <li><a class="water" href="#messina-strait">Messina Strait</a>: eurostat/searoute is 2.0 nm shorter.</li>
         </ul>
-        <p>On the three other routes from Honolulu, no line stays on water: auto-sea-way has the same 0.4 nm leg, and the lines of all other routers cross land too.</p>
+        <p>On these routes the shorter lines run within 1 nm of the coast for more of their length. In the Malacca Strait it is 48 % of the @arcnautical/maritime-routing line, and 7 % of the auto-sea-way line.</p>
+        <p><strong>Honolulu.</strong> The Pub 151 position for Honolulu is in the inner harbour, and auto-sea-way crosses 0.4 nm of Sand Island to reach it. It marks this leg as land in its answer. On <a class="water" href="#honolulu-san-francisco">Honolulu to San Francisco</a>, eurostat/searoute stays on water. On the three other routes from Honolulu, no line stays on water.</p>
       </div>
     </div>
   </div>

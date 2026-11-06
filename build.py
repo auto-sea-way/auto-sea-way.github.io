@@ -46,7 +46,6 @@ def stats():
     out = {}
     closest = winners(PUB, "pub151_err_pct", 0)
     shortest = winners(ROUTES)
-    shortest_short = winners(SHORT)
     for k in ORDER:
         ms = [r["tools"][k] for r in ROUTES]
         pe = [r["tools"][k]["pub151_err_pct"] for r in PUB]
@@ -58,10 +57,9 @@ def stats():
             "land_way_routes": sum(m["land_osm_way_nm"] > 0 for m in ms),
             "median_ms": st.median(tm) if tm else None,
             "shortest": shortest[k],
-            "shortest_short": shortest_short[k],
-            "short_above": st.median(100 * (r["tools"][k]["total_nm"] / min(on_water(r).values()) - 1)
-                                     for r in SHORT if on_water(r)),
-            "short_land_routes": sum(r["tools"][k]["land_osm_way_nm"] > 0 for r in SHORT),
+            "water_all": sum(m["land_osm_way_nm"] == 0 for m in ms),
+            "water_short": sum(r["tools"][k]["land_osm_way_nm"] == 0 for r in SHORT),
+            "land_short": sum(r["tools"][k]["land_osm_way_nm"] for r in SHORT),
         }
     return out
 
@@ -84,12 +82,12 @@ def titleblock():
 <table class="tb">
 <thead><tr><td></td><th scope="col">auto-sea-way</th><th scope="col">Best other router</th></tr></thead>
 <tbody>
-<tr><th scope="row">Shortest by sea, {len(SHORT)} short routes</th><td>{a['shortest_short']}</td><td>{best('shortest_short')}</td></tr>
-<tr><th scope="row">Shortest by sea, all 45 routes</th><td>{a['shortest']}</td><td>{best('shortest')}</td></tr>
-<tr><th scope="row">Closest to official distances, {len(PUB)} port pairs</th><td>{a['closest']}</td><td>{best('closest')}</td></tr>
+<tr><th scope="row">Stays on water, {len(SHORT)} short routes</th><td>{a['water_short']}</td><td>{best('water_short')}</td></tr>
+<tr><th scope="row">Stays on water, all 45 routes</th><td>{a['water_all']}*</td><td>{best('water_all')}</td></tr>
+<tr><th scope="row">Mean difference from official distances</th><td>{a['mean_abs']:.1f}&nbsp;%</td><td>{min(o['mean_abs'] for o in others):.1f}&nbsp;%</td></tr>
 <tr><th scope="row">Land crossed, all routes</th><td>{f1(a['land_way'])}&nbsp;nm*</td><td>{min(o['land_way'] for o in others):,.0f}&nbsp;nm</td></tr>
 </tbody></table>
-<p class="small note">Short routes are under 200&nbsp;nm. A route that crosses land does not count as by sea. *&nbsp;One 0.4&nbsp;nm leg in Honolulu harbour, which auto-sea-way reports as land.</p>
+<p class="small note">Short routes are under 200&nbsp;nm: straits, canals and coastal crossings. auto-sea-way kept 1&nbsp;nm off the coast where the water allows it. *&nbsp;One 0.4&nbsp;nm leg in Honolulu harbour, which auto-sea-way reports as land.</p>
 <p class="links"><a href="#results">All results</a>, <a href="#others">where the others are better</a>, <a href="benchmarks.html#method">method</a></p>"""
 
 
@@ -101,9 +99,9 @@ def results():
             f"{s['median_ms']:.0f} ms" if s["median_ms"] is not None else "batch only")
         short = "auto-sea-way" if k == "asw" else t["short"]  # full names are on the benchmarks page
         rows.append(f"""<tr><th scope="row"><span class="swatch" style="border-top-color:{t['light']}"></span><a href="{t['url']}">{e(short)}</a> <span class="ver">{e(t['version'])}</span></th>
-<td>{s['shortest']}</td><td>{s['shortest_short']}</td><td>{s['closest']}</td><td>{s['mean_abs']:.2f}&nbsp;%</td><td>{s['land_way_routes']}</td><td>{time}</td></tr>""")
+<td>{s['water_short']}</td><td>{s['water_all']}</td><td>{s['mean_abs']:.2f}&nbsp;%</td><td>{s['closest']}</td><td>{f1(s['land_way'])}</td><td>{time}</td></tr>""")
     return f"""<div class="scroll"><table aria-label="Results of {len(ORDER)} routers on 45 routes">
-<thead><tr><th scope="col">Router</th><th scope="col">Shortest by sea, all 45 routes</th><th scope="col">Shortest by sea, {len(SHORT)} short routes</th><th scope="col">Closest to Pub 151, {len(PUB)} pairs</th><th scope="col">Mean difference from Pub 151</th><th scope="col">Routes over land</th><th scope="col">Median time per route</th></tr></thead>
+<thead><tr><th scope="col">Router</th><th scope="col">Stays on water, {len(SHORT)} short routes</th><th scope="col">Stays on water, all 45 routes</th><th scope="col">Mean difference from Pub 151</th><th scope="col">Closest to Pub 151, {len(PUB)} pairs</th><th scope="col">Land crossed, nm</th><th scope="col">Median time per route</th></tr></thead>
 <tbody>
 {chr(10).join(rows)}
 </tbody></table></div>"""
@@ -150,12 +148,11 @@ def short_table():
     rows = []
     for k in ORDER:
         s = ST[k]
-        rows.append(f'<tr><th scope="row">{name(k)}</th><td>{s["shortest_short"]} of {len(SHORT)}</td>'
-                    f'<td>{s["short_above"]:.1f}&nbsp;%</td><td>{s["short_land_routes"]} of {len(SHORT)}</td></tr>')
+        rows.append(f'<tr><th scope="row">{name(k)}</th><td>{s["water_short"]} of {len(SHORT)}</td><td>{f1(s["land_short"])}</td></tr>')
     names = ", ".join(e(label(r)) for r in SHORT)
     return f"""<div class="scroll"><table>
 <caption>The {len(SHORT)} routes under 200&nbsp;nm</caption>
-<thead><tr><th scope="col">Router</th><th scope="col">Shortest line on water</th><th scope="col">Median length above the shortest line on water</th><th scope="col">Routes over land</th></tr></thead>
+<thead><tr><th scope="col">Router</th><th scope="col">Stays on water</th><th scope="col">Land crossed, nm</th></tr></thead>
 <tbody>
 {chr(10).join(rows)}
 </tbody></table></div>
@@ -190,7 +187,7 @@ def tools_table():
 def asw_bench():
     md = (ROOT / "data/asw-bench.md").read_text()
     head = re.search(r"\*\*Graph\*\*: (.*?)\n\*\*Commit\*\*: `(\w+)` \| \*\*Date\*\*: ([\d-]+) \| \*\*Iterations\*\*: (\d+)", md)
-    out = [f'<p>auto-sea-way {T["asw"]["version"]} on the planet graph ({e(head.group(1))}), {head.group(4)} runs of each route, measured in the program without HTTP on {head.group(3)}. Distances count only the water legs.</p>']
+    out = [f'<p>auto-sea-way {T["asw"]["version"]} on the planet graph ({e(head.group(1))}), {head.group(4)} runs of each route, measured in the program without HTTP on {head.group(3)}, with the default settings (no shore buffer). Distances count only the water legs.</p>']
     for title in ("Sailing Routes", "Passage Transits"):
         block = md.split(f"## {title}")[1].split("##")[0]
         rows = [l for l in block.strip().splitlines() if l.startswith("|") and not l.startswith("|--") and "Route" not in l]
