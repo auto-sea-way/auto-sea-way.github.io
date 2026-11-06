@@ -9,6 +9,6 @@ It is a static site. The comparison of sea routers lives in `data/`:
 - `data/tools.json`: versions, licenses and settings of the routers
 - `data/asw-bench.md`: the latest `asw bench` tables
 
-`method/` has the scripts that ran the routers and measured the lines. After a change in `data/`, run `python3 build.py` to update the tables in `index.html` and `benchmarks.html`.
+`method/` has the scripts that ran the routers and measured the lines, and `method/canal-water/` the OpenStreetMap water polygons of the Panama and Kiel canals that the land check uses. After a change in `data/`, run `python3 build.py` to update the tables in `index.html` and `benchmarks.html`.
 
-Third-party files: MapLibre GL JS 6.15.0 (BSD-3-Clause, `vendor/`), Spectral and Barlow Semi Condensed (SIL Open Font License, `fonts/`). Map tiles from OpenFreeMap, © OpenMapTiles, data from OpenStreetMap.
+Third-party files: MapLibre GL JS 6.15.0 (BSD-3-Clause, `vendor/`), Spectral and Barlow Semi Condensed (SIL Open Font License, `fonts/`), the GitHub mark from Primer Octicons (MIT, inline in the pages) and the AvNav icon `img/avnav-icon.png` from [wellenvogel/avnav](https://github.com/wellenvogel/avnav) (MIT, © Andreas Vogel). Map tiles from OpenFreeMap, © OpenMapTiles, data from OpenStreetMap.

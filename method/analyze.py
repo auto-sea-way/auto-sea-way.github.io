@@ -23,7 +23,7 @@ R = 3440.065
 STEP = 2.0
 DEEP = float(sys.argv[5]) if len(sys.argv) > 5 else 3.0
 out_dir, passages_rs, land_shp, site_dir = map(Path, sys.argv[1:5])
-TOOLS = ["asw", "searoute-py", "scgraph", "searoute-ts", "eurostat"]
+TOOLS = ["asw", "searoute-py", "scgraph", "searoute-ts", "eurostat", "arcnautical"]
 
 
 def hav(a, b):

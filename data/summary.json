@@ -42,6 +42,13 @@
    "startup_s": 1.4,
    "max_rss_mb": 372.8,
    "batch_note": "45 routes in one run: 9.1 s, 19.5 s and 17.3 s in three runs; one route alone: 1.4 to 1.6 s (JVM start and network build)"
+  },
+  "arcnautical": {
+   "tool": "arcnautical",
+   "version": "1.0.1",
+   "settings": "findOceanPath(fromLat, fromLon, toLat, toLon), defaults; route cache cleared before every call",
+   "startup_s": 1.1369411250343546,
+   "max_rss_mb": 699.695104
   }
  },
  "routes": [
@@ -116,7 +123,7 @@
      "first_ms": 146.38,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 1.0,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -127,6 +134,21 @@
      "total_nm": 22.7,
      "points": 12,
      "max_leg_nm": 4.3,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 25.3,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 25.3,
+     "points": 11,
+     "max_leg_nm": 3.5,
+     "median_ms": 0.05,
+     "first_ms": 0.11,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
@@ -222,6 +244,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 4.0,
      "land_osm_end_nm": 0.4
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 27.9,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 27.9,
+     "points": 10,
+     "max_leg_nm": 4.5,
+     "median_ms": 0.02,
+     "first_ms": 0.04,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 1.3,
+     "land_osm_end_nm": 0.5
     }
    },
    "from_on_land": false,
@@ -313,6 +350,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 1.4
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 35.4,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 35.4,
+     "points": 12,
+     "max_leg_nm": 5.2,
+     "median_ms": 0.04,
+     "first_ms": 0.05,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": true,
@@ -403,6 +455,21 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 43.2,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 43.2,
+     "points": 12,
+     "max_leg_nm": 5.0,
+     "median_ms": 0.06,
+     "first_ms": 0.07,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.4,
      "land_osm_end_nm": 0.0
     }
    },
@@ -495,6 +562,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 132.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 132.5,
+     "points": 31,
+     "max_leg_nm": 6.0,
+     "median_ms": 0.17,
+     "first_ms": 0.18,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.4,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -586,6 +668,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 1.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 95.8,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 95.8,
+     "points": 21,
+     "max_leg_nm": 6.0,
+     "median_ms": 0.25,
+     "first_ms": 0.3,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.5
     }
    },
    "from_on_land": true,
@@ -647,7 +744,7 @@
      "first_ms": 0.04,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 2.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 2.5,
      "land_osm_end_nm": 6.5
     },
     "searoute-ts": {
@@ -677,6 +774,21 @@
      "land_ne_end_nm": 2.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 6.5
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 570.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 570.7,
+     "points": 149,
+     "max_leg_nm": 5.3,
+     "median_ms": 2.88,
+     "first_ms": 4.37,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 1.6,
+     "land_osm_way_nm": 10.1,
+     "land_osm_end_nm": 3.6
     }
    },
    "from_on_land": false,
@@ -767,6 +879,21 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 4.5,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 1287.9,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 1287.9,
+     "points": 288,
+     "max_leg_nm": 5.2,
+     "median_ms": 54.23,
+     "first_ms": 54.28,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 10.8,
      "land_osm_end_nm": 0.0
     }
    },
@@ -859,6 +986,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3401.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3401.7,
+     "points": 672,
+     "max_leg_nm": 5.7,
+     "median_ms": 262.55,
+     "first_ms": 269.11,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 2.2
     }
    },
    "from_on_land": true,
@@ -950,6 +1092,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 6.9,
      "land_osm_end_nm": 0.9
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3261.2,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3261.2,
+     "points": 921,
+     "max_leg_nm": 5.2,
+     "median_ms": 320.89,
+     "first_ms": 330.39,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 1.7,
+     "land_osm_way_nm": 19.2,
+     "land_osm_end_nm": 5.0
     }
    },
    "from_on_land": false,
@@ -996,7 +1153,7 @@
      "first_ms": 7.46,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.5,
+     "land_osm_way_nm": 55.5,
      "land_osm_end_nm": 2.9
     },
     "scgraph": {
@@ -1011,7 +1168,7 @@
      "first_ms": 0.85,
      "land_ne_way_nm": 47.6,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 91.8,
+     "land_osm_way_nm": 142.1,
      "land_osm_end_nm": 1.5
     },
     "searoute-ts": {
@@ -1026,7 +1183,7 @@
      "first_ms": 157.56,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 5.5,
+     "land_osm_way_nm": 61.9,
      "land_osm_end_nm": 2.3
     },
     "eurostat": {
@@ -1039,8 +1196,23 @@
      "max_leg_nm": 484.7,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 3.5,
+     "land_osm_way_nm": 46.0,
      "land_osm_end_nm": 2.2
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 10031.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 10031.5,
+     "points": 2358,
+     "max_leg_nm": 6.0,
+     "median_ms": 1805.31,
+     "first_ms": 1735.15,
+     "land_ne_way_nm": 7576.9,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 7728.0,
+     "land_osm_end_nm": 1.8
     }
    },
    "from_on_land": true,
@@ -1087,7 +1259,7 @@
      "first_ms": 9.72,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.5,
+     "land_osm_way_nm": 55.1,
      "land_osm_end_nm": 6.3
     },
     "scgraph": {
@@ -1117,7 +1289,7 @@
      "first_ms": 154.45,
      "land_ne_way_nm": 2.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 54.3,
+     "land_osm_way_nm": 109.7,
      "land_osm_end_nm": 3.7
     },
     "eurostat": {
@@ -1130,7 +1302,22 @@
      "max_leg_nm": 484.7,
      "land_ne_way_nm": 2.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 50.8,
+     "land_osm_way_nm": 92.8,
+     "land_osm_end_nm": 3.6
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 7387.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 7387.5,
+     "points": 5059,
+     "max_leg_nm": 6.0,
+     "median_ms": 1342.81,
+     "first_ms": 1047.52,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 14.2,
      "land_osm_end_nm": 3.6
     }
    },
@@ -1223,6 +1410,21 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 4434.0,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 4434.0,
+     "points": 1094,
+     "max_leg_nm": 5.3,
+     "median_ms": 675.95,
+     "first_ms": 685.36,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 3.8,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -1269,7 +1471,7 @@
      "first_ms": 0.1,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 3.9,
-     "land_osm_way_nm": 1.5,
+     "land_osm_way_nm": 56.1,
      "land_osm_end_nm": 9.9
     },
     "scgraph": {
@@ -1284,7 +1486,7 @@
      "first_ms": 0.03,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 3.9,
-     "land_osm_way_nm": 1.5,
+     "land_osm_way_nm": 51.3,
      "land_osm_end_nm": 9.9
     },
     "searoute-ts": {
@@ -1299,7 +1501,7 @@
      "first_ms": 144.04,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 3.6,
-     "land_osm_way_nm": 0.5,
+     "land_osm_way_nm": 55.9,
      "land_osm_end_nm": 9.7
     },
     "eurostat": {
@@ -1312,8 +1514,23 @@
      "max_leg_nm": 26.4,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 10.0,
-     "land_osm_way_nm": 4.5,
+     "land_osm_way_nm": 46.5,
      "land_osm_end_nm": 10.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 147.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 147.6,
+     "points": 44,
+     "max_leg_nm": 6.0,
+     "median_ms": 0.12,
+     "first_ms": 0.19,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 2.0,
+     "land_osm_way_nm": 78.8,
+     "land_osm_end_nm": 6.0
     }
    },
    "from_on_land": true,
@@ -1360,7 +1577,7 @@
      "first_ms": 0.09,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 7.6,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -1375,7 +1592,7 @@
      "first_ms": 0.04,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 8.0,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -1390,7 +1607,7 @@
      "first_ms": 147.59,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 16.2,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -1403,7 +1620,22 @@
      "max_leg_nm": 11.8,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 13.2,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 50.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 50.6,
+     "points": 14,
+     "max_leg_nm": 4.2,
+     "median_ms": 0.03,
+     "first_ms": 0.05,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 24.4,
      "land_osm_end_nm": 0.0
     }
    },
@@ -1437,7 +1669,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 5.3,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 7.3
+     "land_osm_end_nm": 9.2
     },
     "searoute-py": {
      "reported_nm": 557.5,
@@ -1451,8 +1683,8 @@
      "first_ms": 0.34,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 2.5,
-     "land_osm_end_nm": 0.0
+     "land_osm_way_nm": 11.8,
+     "land_osm_end_nm": 10.3
     },
     "scgraph": {
      "reported_nm": 570.5,
@@ -1466,8 +1698,8 @@
      "first_ms": 0.06,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 17.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_way_nm": 26.3,
+     "land_osm_end_nm": 10.3
     },
     "searoute-ts": {
      "reported_nm": 98.9,
@@ -1481,8 +1713,8 @@
      "first_ms": 146.37,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 7.8,
-     "land_osm_way_nm": 2.9,
-     "land_osm_end_nm": 11.1
+     "land_osm_way_nm": 42.5,
+     "land_osm_end_nm": 19.6
     },
     "eurostat": {
      "reported_nm": 117.0,
@@ -1494,8 +1726,23 @@
      "max_leg_nm": 12.6,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 6.0,
-     "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 10.7
+     "land_osm_way_nm": 29.9,
+     "land_osm_end_nm": 19.1
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 93.0,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 93.0,
+     "points": 35,
+     "max_leg_nm": 3.5,
+     "median_ms": 0.17,
+     "first_ms": 0.2,
+     "land_ne_way_nm": 5.2,
+     "land_ne_end_nm": 3.2,
+     "land_osm_way_nm": 57.2,
+     "land_osm_end_nm": 9.7
     }
    },
    "from_on_land": false,
@@ -1542,7 +1789,7 @@
      "first_ms": 0.09,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 0.5,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -1557,7 +1804,7 @@
      "first_ms": 0.03,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 2.4,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -1572,7 +1819,7 @@
      "first_ms": 149.01,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 3.8,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -1585,7 +1832,22 @@
      "max_leg_nm": 4.1,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 2.7,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 6.8,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 6.8,
+     "points": 3,
+     "max_leg_nm": 3.9,
+     "median_ms": 0.0,
+     "first_ms": 0.01,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 2.9,
      "land_osm_end_nm": 0.0
     }
    },
@@ -1633,7 +1895,7 @@
      "first_ms": 0.11,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 0.5,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -1648,7 +1910,7 @@
      "first_ms": 0.03,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 0.5,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -1663,7 +1925,7 @@
      "first_ms": 143.3,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 10.0,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -1676,7 +1938,22 @@
      "max_leg_nm": 14.5,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 6.5,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 33.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 33.6,
+     "points": 11,
+     "max_leg_nm": 4.6,
+     "median_ms": 0.02,
+     "first_ms": 0.04,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 10.6,
      "land_osm_end_nm": 0.0
     }
    },
@@ -1724,8 +2001,8 @@
      "first_ms": 0.07,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_way_nm": 22.2,
+     "land_osm_end_nm": 1.4
     },
     "scgraph": {
      "reported_nm": 212.3,
@@ -1739,8 +2016,8 @@
      "first_ms": 0.04,
      "land_ne_way_nm": 13.9,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 30.9,
-     "land_osm_end_nm": 0.5
+     "land_osm_way_nm": 57.7,
+     "land_osm_end_nm": 1.9
     },
     "searoute-ts": {
      "reported_nm": 10.4,
@@ -1754,8 +2031,8 @@
      "first_ms": 146.23,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_way_nm": 17.3,
+     "land_osm_end_nm": 9.8
     },
     "eurostat": {
      "reported_nm": 96.2,
@@ -1767,8 +2044,23 @@
      "max_leg_nm": 24.9,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 2.0,
-     "land_osm_end_nm": 0.5
+     "land_osm_way_nm": 10.1,
+     "land_osm_end_nm": 1.9
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 40.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 40.6,
+     "points": 12,
+     "max_leg_nm": 5.0,
+     "median_ms": 0.02,
+     "first_ms": 0.03,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 20.7,
+     "land_osm_end_nm": 9.6
     }
    },
    "from_on_land": true,
@@ -1816,7 +2108,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 1.0
+     "land_osm_end_nm": 6.7
     },
     "scgraph": {
      "reported_nm": 31.1,
@@ -1831,7 +2123,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 3.4
     },
     "searoute-ts": {
      "reported_nm": 17.9,
@@ -1856,6 +2148,21 @@
      "total_nm": 36.6,
      "points": 5,
      "max_leg_nm": 18.1,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.5
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 30.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 30.7,
+     "points": 11,
+     "max_leg_nm": 4.2,
+     "median_ms": 0.01,
+     "first_ms": 0.02,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
@@ -1892,7 +2199,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 1.3
     },
     "searoute-py": {
      "reported_nm": 32.6,
@@ -1907,7 +2214,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 1.4
     },
     "scgraph": {
      "reported_nm": 90.3,
@@ -1922,7 +2229,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 1.5
     },
     "searoute-ts": {
      "reported_nm": 44.8,
@@ -1937,7 +2244,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 2.5,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 2.5
     },
     "eurostat": {
      "reported_nm": 72.2,
@@ -1950,7 +2257,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 2.9
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 27.3,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 27.3,
+     "points": 9,
+     "max_leg_nm": 4.7,
+     "median_ms": 0.01,
+     "first_ms": 0.01,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 2.4
     }
    },
    "from_on_land": true,
@@ -1983,7 +2305,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.7
+     "land_osm_end_nm": 1.1
     },
     "searoute-py": {
      "reported_nm": 26.4,
@@ -1998,7 +2320,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.5
+     "land_osm_end_nm": 1.0
     },
     "scgraph": {
      "reported_nm": 26.4,
@@ -2013,7 +2335,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.5
+     "land_osm_end_nm": 1.0
     },
     "searoute-ts": {
      "reported_nm": 18.5,
@@ -2027,8 +2349,8 @@
      "first_ms": 145.6,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_way_nm": 0.5,
+     "land_osm_end_nm": 1.0
     },
     "eurostat": {
      "reported_nm": 18.0,
@@ -2041,7 +2363,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 0.0
+     "land_osm_end_nm": 1.3
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 15.2,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 15.2,
+     "points": 5,
+     "max_leg_nm": 4.7,
+     "median_ms": 0.01,
+     "first_ms": 0.01,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 1.4,
+     "land_osm_end_nm": 10.1
     }
    },
    "from_on_land": false,
@@ -2074,7 +2411,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 2.9,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 3.4
+     "land_osm_end_nm": 5.7
     },
     "searoute-py": {
      "reported_nm": 34.3,
@@ -2089,7 +2426,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 5.2,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 6.7
+     "land_osm_end_nm": 8.7
     },
     "scgraph": {
      "reported_nm": 44.0,
@@ -2104,7 +2441,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 3.7,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 2.5
+     "land_osm_end_nm": 6.9
     },
     "searoute-ts": {
      "reported_nm": 19.1,
@@ -2119,7 +2456,7 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 3.2,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 2.4
+     "land_osm_end_nm": 8.8
     },
     "eurostat": {
      "reported_nm": 31.5,
@@ -2132,7 +2469,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 3.5,
      "land_osm_way_nm": 0.0,
-     "land_osm_end_nm": 6.0
+     "land_osm_end_nm": 7.5
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 26.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 26.5,
+     "points": 9,
+     "max_leg_nm": 4.4,
+     "median_ms": 0.01,
+     "first_ms": 0.03,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 3.0,
+     "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 6.3
     }
    },
    "from_on_land": true,
@@ -2229,6 +2581,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 946.4,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 946.4,
+     "points": 206,
+     "max_leg_nm": 6.0,
+     "median_ms": 27.21,
+     "first_ms": 27.21,
+     "pub151_err_pct": 3.09,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 1.7,
      "land_osm_end_nm": 0.0
     }
    },
@@ -2327,6 +2695,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 2049.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 2049.7,
+     "points": 507,
+     "max_leg_nm": 5.5,
+     "median_ms": 55.66,
+     "first_ms": 54.3,
+     "pub151_err_pct": 5.49,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 2.4,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -2376,7 +2760,7 @@
      "pub151_err_pct": 0.92,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 55.5,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -2392,7 +2776,7 @@
      "pub151_err_pct": 1.13,
      "land_ne_way_nm": 47.6,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 91.3,
+     "land_osm_way_nm": 141.6,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -2408,7 +2792,7 @@
      "pub151_err_pct": 1.26,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 5.5,
+     "land_osm_way_nm": 60.9,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -2422,7 +2806,23 @@
      "pub151_err_pct": 1.3,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 3.5,
+     "land_osm_way_nm": 45.5,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 5219.4,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 5219.4,
+     "points": 1080,
+     "max_leg_nm": 6.0,
+     "median_ms": 260.02,
+     "first_ms": 276.29,
+     "pub151_err_pct": 3.66,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 86.5,
      "land_osm_end_nm": 0.0
     }
    },
@@ -2521,6 +2921,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3402.0,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3402.0,
+     "points": 671,
+     "max_leg_nm": 5.7,
+     "median_ms": 255.32,
+     "first_ms": 256.82,
+     "pub151_err_pct": 3.94,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 2.3,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -2618,6 +3034,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 4.5,
      "land_osm_end_nm": 3.5
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 1289.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 1289.5,
+     "points": 288,
+     "max_leg_nm": 5.2,
+     "median_ms": 53.37,
+     "first_ms": 53.28,
+     "pub151_err_pct": 0.74,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 11.2,
+     "land_osm_end_nm": 3.9
     }
    },
    "from_on_land": true,
@@ -2715,6 +3147,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 2.5,
      "land_osm_end_nm": 3.5
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 1311.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 1311.7,
+     "points": 292,
+     "max_leg_nm": 5.4,
+     "median_ms": 51.33,
+     "first_ms": 50.4,
+     "pub151_err_pct": 6.3,
+     "land_ne_way_nm": 1.9,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 14.2,
+     "land_osm_end_nm": 3.9
     }
    },
    "from_on_land": true,
@@ -2811,6 +3259,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 16.5,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 8159.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 8159.7,
+     "points": 1946,
+     "max_leg_nm": 6.0,
+     "median_ms": 2315.49,
+     "first_ms": 2278.49,
+     "pub151_err_pct": 6.22,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 19.8,
      "land_osm_end_nm": 0.0
     }
    },
@@ -2909,6 +3373,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 6.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3274.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3274.5,
+     "points": 739,
+     "max_leg_nm": 5.3,
+     "median_ms": 160.84,
+     "first_ms": 157.35,
+     "pub151_err_pct": 3.1,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 2.0,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -3005,6 +3485,22 @@
      "land_ne_way_nm": 29.9,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 44.9,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 4462.0,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 4462.0,
+     "points": 789,
+     "max_leg_nm": 6.0,
+     "median_ms": 497.19,
+     "first_ms": 531.66,
+     "pub151_err_pct": 5.76,
+     "land_ne_way_nm": 1.4,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 7.8,
      "land_osm_end_nm": 0.0
     }
    },
@@ -3103,6 +3599,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.8,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 2361.9,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 2361.9,
+     "points": 461,
+     "max_leg_nm": 5.8,
+     "median_ms": 117.66,
+     "first_ms": 121.91,
+     "pub151_err_pct": 6.01,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 5.5,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -3152,7 +3664,7 @@
      "pub151_err_pct": 2.06,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 0.9,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -3168,7 +3680,7 @@
      "pub151_err_pct": 24.91,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 0.5,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -3199,6 +3711,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.5,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 1602.2,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 1602.2,
+     "points": 314,
+     "max_leg_nm": 6.0,
+     "median_ms": 20.64,
+     "first_ms": 20.88,
+     "pub151_err_pct": 1.34,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 6.6,
      "land_osm_end_nm": 0.0
     }
    },
@@ -3249,7 +3777,7 @@
      "pub151_err_pct": 1.53,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 54.6,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -3265,7 +3793,7 @@
      "pub151_err_pct": 0.87,
      "land_ne_way_nm": 47.6,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 91.3,
+     "land_osm_way_nm": 141.1,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -3281,7 +3809,7 @@
      "pub151_err_pct": 0.63,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 6.5,
+     "land_osm_way_nm": 61.9,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -3295,7 +3823,23 @@
      "pub151_err_pct": 0.6,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 4.0,
+     "land_osm_way_nm": 46.0,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3638.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3638.6,
+     "points": 776,
+     "max_leg_nm": 6.0,
+     "median_ms": 262.83,
+     "first_ms": 262.66,
+     "pub151_err_pct": 4.53,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 81.8,
      "land_osm_end_nm": 0.0
     }
    },
@@ -3394,6 +3938,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 30.5,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3527.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3527.6,
+     "points": 705,
+     "max_leg_nm": 5.6,
+     "median_ms": 296.69,
+     "first_ms": 290.87,
+     "pub151_err_pct": 3.91,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 6.1,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -3491,6 +4051,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.5,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 4761.8,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 4761.8,
+     "points": 1053,
+     "max_leg_nm": 5.4,
+     "median_ms": 821.33,
+     "first_ms": 803.26,
+     "pub151_err_pct": 4.98,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 4.3,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -3587,6 +4163,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 2219.6,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 2219.6,
+     "points": 435,
+     "max_leg_nm": 5.8,
+     "median_ms": 113.85,
+     "first_ms": 114.22,
+     "pub151_err_pct": 6.15,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 3.6,
      "land_osm_end_nm": 0.0
     }
    },
@@ -3686,6 +4278,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 3.0,
      "land_osm_end_nm": 4.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 4490.1,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 4490.1,
+     "points": 795,
+     "max_leg_nm": 6.0,
+     "median_ms": 195.24,
+     "first_ms": 203.12,
+     "pub151_err_pct": 1.59,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 5.4,
+     "land_osm_end_nm": 4.5
     }
    },
    "from_on_land": false,
@@ -3735,7 +4343,7 @@
      "pub151_err_pct": 1.53,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 0.9,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -3751,7 +4359,7 @@
      "pub151_err_pct": 1.73,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 3.0,
+     "land_osm_way_nm": 3.5,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -3782,6 +4390,22 @@
      "land_ne_way_nm": 2.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 21.5,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 14528.7,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 14528.7,
+     "points": 3675,
+     "max_leg_nm": 6.0,
+     "median_ms": 5527.53,
+     "first_ms": 5471.21,
+     "pub151_err_pct": 38.3,
+     "land_ne_way_nm": 8323.9,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 8884.1,
      "land_osm_end_nm": 0.0
     }
    },
@@ -3832,7 +4456,7 @@
      "pub151_err_pct": 1.36,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 0.0,
+     "land_osm_way_nm": 2.8,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -3848,7 +4472,7 @@
      "pub151_err_pct": 1.01,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 7.5,
+     "land_osm_way_nm": 10.7,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -3864,7 +4488,7 @@
      "pub151_err_pct": 0.35,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 13.3,
+     "land_osm_way_nm": 29.5,
      "land_osm_end_nm": 0.0
     },
     "eurostat": {
@@ -3878,7 +4502,23 @@
      "pub151_err_pct": 0.43,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 7.5,
+     "land_osm_way_nm": 20.7,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 2051.5,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 2051.5,
+     "points": 388,
+     "max_leg_nm": 6.0,
+     "median_ms": 74.44,
+     "first_ms": 72.7,
+     "pub151_err_pct": 1.76,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 35.1,
      "land_osm_end_nm": 0.0
     }
    },
@@ -3929,7 +4569,7 @@
      "pub151_err_pct": 3.01,
      "land_ne_way_nm": 11.4,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 22.4,
+     "land_osm_way_nm": 23.3,
      "land_osm_end_nm": 0.0
     },
     "scgraph": {
@@ -3945,7 +4585,7 @@
      "pub151_err_pct": 1.66,
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
-     "land_osm_way_nm": 4.0,
+     "land_osm_way_nm": 4.5,
      "land_osm_end_nm": 0.0
     },
     "searoute-ts": {
@@ -3976,6 +4616,22 @@
      "land_ne_way_nm": 7.5,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 24.6,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 5796.4,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 5796.4,
+     "points": 1090,
+     "max_leg_nm": 6.0,
+     "median_ms": 1884.24,
+     "first_ms": 1845.41,
+     "pub151_err_pct": 3.9,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 5.6,
      "land_osm_end_nm": 0.0
     }
    },
@@ -4074,6 +4730,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 5.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 6939.8,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 6939.8,
+     "points": 1255,
+     "max_leg_nm": 6.0,
+     "median_ms": 981.9,
+     "first_ms": 948.03,
+     "pub151_err_pct": 2.27,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 2.0,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -4170,6 +4842,22 @@
      "land_ne_way_nm": 0.0,
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 12.4,
+     "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 3032.3,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 3032.3,
+     "points": 680,
+     "max_leg_nm": 5.2,
+     "median_ms": 126.6,
+     "first_ms": 126.07,
+     "pub151_err_pct": 1.76,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 5.1,
      "land_osm_end_nm": 0.0
     }
    },
@@ -4268,6 +4956,22 @@
      "land_ne_end_nm": 0.0,
      "land_osm_way_nm": 0.0,
      "land_osm_end_nm": 0.0
+    },
+    "arcnautical": {
+     "reported_nm": null,
+     "line_nm": 5232.3,
+     "gap_from_nm": 0.0,
+     "gap_to_nm": 0.0,
+     "total_nm": 5232.3,
+     "points": 968,
+     "max_leg_nm": 6.0,
+     "median_ms": 344.54,
+     "first_ms": 344.12,
+     "pub151_err_pct": 4.15,
+     "land_ne_way_nm": 0.0,
+     "land_ne_end_nm": 0.0,
+     "land_osm_way_nm": 6.5,
+     "land_osm_end_nm": 0.0
     }
    },
    "from_on_land": false,
@@ -4280,6 +4984,9 @@
   "ne_deep_nm": 3.0,
   "osm_step_nm": 0.5,
   "osm_deep_nm": 0.1,
-  "earth_radius_nm": 3440.065
+  "earth_radius_nm": 3440.065,
+  "ne_skips": "all passage boxes of auto-sea-way",
+  "osm_skips": "nothing; OSM water polygons count as water inside the Panama and Kiel canal boxes",
+  "compared": "only lines with no land on the way (OSM check)"
  }
 }

@@ -1,6 +1,4 @@
-const { Map, NavigationControl, AttributionControl, LngLatBounds } = await import(window.ASW_MAPLIBRE || './vendor/maplibre-gl-6.15.0/maplibre-gl.mjs');
-
-const ORDER = ['eurostat', 'searoute-ts', 'scgraph', 'searoute-py', 'asw']; // drawing order, asw on top
+const ORDER = ['arcnautical', 'eurostat', 'searoute-ts', 'scgraph', 'searoute-py', 'asw']; // drawing order, asw on top
 const STYLE = { light: 'https://tiles.openfreemap.org/styles/positron', dark: 'https://tiles.openfreemap.org/styles/dark' };
 // window.ASW_BASEMAP = 'local' draws Natural Earth land from data/land.json instead of tiles (for previews without network access).
 const localStyle = (t) => ({ version: 8, sources: { basemap: { type: 'geojson', data: 'data/land.json', attribution: 'Natural Earth' } },
@@ -17,7 +15,7 @@ const theme = () => {
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 };
 
-let tools, summary, map, current, hidden = new Set(), focusTool = null;
+let tools, summary, ml, map, current, hidden = new Set(), focusTool = null;
 
 async function main() {
   [tools, summary] = await Promise.all([
@@ -33,21 +31,27 @@ async function main() {
   }
   sel.addEventListener('change', () => { location.hash = sel.value; });
   window.addEventListener('hashchange', fromHash);
+  // The map library and the tiles are a few MB, so they load only when the map comes near the screen.
+  new IntersectionObserver((seen, o) => { if (seen.some((e) => e.isIntersecting)) { o.disconnect(); startMap(); } },
+    { rootMargin: '600px' }).observe($('#map'));
+  fromHash();
+}
 
+async function startMap() {
   try {
-    map = new Map({
+    ml = await import(window.ASW_MAPLIBRE || './vendor/maplibre-gl-6.15.0/maplibre-gl.mjs');
+    map = new ml.Map({
       container: 'map', style: styleFor(theme()), center: [20, 30], zoom: 1.5,
       attributionControl: false, cooperativeGestures: matchMedia('(pointer: coarse)').matches,
     });
-    map.addControl(new NavigationControl({ showCompass: false }), 'top-right');
-    map.addControl(new AttributionControl({ compact: false }));
+    map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
+    map.addControl(new ml.AttributionControl({ compact: false }));
     map.on('style.load', () => { addLayers(); if (current) draw(current); });
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => map.setStyle(styleFor(theme())));
   } catch (e) {
     $('#map').innerHTML = '<p style="padding:1rem">The map could not start in this browser (it needs WebGL). The numbers for each route are in the table.</p>';
     map = null;
   }
-  fromHash();
 }
 
 function fromHash() {
@@ -91,7 +95,7 @@ function addLayers() {
 
 function draw(geo) {
   const lines = [], land = [];
-  const b = new LngLatBounds();
+  const b = new ml.LngLatBounds();
   for (const [k, v] of Object.entries(geo.tools)) {
     lines.push({ type: 'Feature', properties: { tool: k }, geometry: { type: 'LineString', coordinates: v.line } });
     for (const run of v.land) {
@@ -157,8 +161,11 @@ function table(id) {
 
 // Notes for routes where the numbers need a sentence. Facts from the measured data.
 const NOTES = {
-  'shanghai-rotterdam': 'scgraph goes through the Northern Sea Route, which the other routers close by default. scgraph has no option to close it.',
-  'dardanelles': 'The start point is on land between the Gulf of Saros and the Sea of Marmara. auto-sea-way joins the water on the Saros side and goes around the peninsula, so searoute-ts and searoute-py are shorter here.',
+  'shanghai-rotterdam': 'scgraph goes through the Northern Sea Route and arcnautical over the North Pole. The other routers close the Arctic by default. scgraph has no option to close it, and the coordinate API of arcnautical has none either.',
+  'rotterdam-singapore': 'arcnautical finds no way at sea for these coordinates. It joins parts with straight lines, and they go over Europe and Asia.',
+  'panama-singapore': 'arcnautical finds no way at sea for these coordinates. It joins parts with straight lines, and they go over land.',
+  'panama-canal': 'The canal has locks, so OpenStreetMap maps it as inland water. Here the land check counts the canal and lake water as water. The straight line of arcnautical goes over the land next to the canal.',
+  'dardanelles': 'The start point is on the narrow land between the Gulf of Saros and the Sea of Marmara. auto-sea-way joins the water on the Saros side and goes down the outer coast of the peninsula. The other routers go through the strait, but their lines cut over its shores.',
   'honolulu-sydney': 'The eurostat/searoute line has two gaps at the 180th meridian (236 nm and 131 nm). They are joined with straight lines here.',
   'kiel-canal': 'searoute-py and scgraph have no Kiel Canal and go around Denmark.',
   'malacca-route': 'The end point is in the town of Phuket. eurostat/searoute ends its line 98 nm from it.',

@@ -1,15 +1,27 @@
 """Second land check on the OSM land polygons (detailed coastline).
 
-Usage: osm_land.py land_polygons.shp passages.rs site_data_dir
+Usage: osm_land.py land_polygons.shp passages.rs site_data_dir canal-water/*.geojsonseq.gz
 
 Every route line in site_data_dir/routes/*.json (already joined to the
 requested start and end) is walked along great circles every 0.5 nm. A
 sample is land when it and the four points 0.1 nm north, south, east and
-west of it are all inside OSM land polygons. Passage corridor boxes are
-skipped, as in the Natural Earth check. Adds land_osm_nm to summary.json
-and the land runs (key "land_osm") to each route file.
+west of it are all on land. Land means inside the OSM land polygons. The
+two canals with locks (Panama and Kiel) are inland water in OSM, so the land
+polygons cover them: inside their boxes, the OSM water polygons
+(natural=water, waterway=riverbank or dock, landuse=reservoir) count as
+water. Suez, Corinth and the straits are sea water in OSM and need nothing
+extra. No box is skipped. Adds land_osm_nm to summary.json and the land
+runs (key "land_osm") to each route file.
+
+canal-water/ has these water polygons, clipped to the boxes. They came from
+the Overpass API on 2026-11-06 with this query, once for each box (Panama
+8.85,-80.05,9.45,-79.45; Kiel 53.85,9.05,54.40,10.20), and were converted
+with `osmium export -f geojsonseq --geometry-types=polygon`:
+
+    [out:xml];(nwr["natural"="water"](BOX);nwr["waterway"="riverbank"](BOX);
+    nwr["landuse"="reservoir"](BOX);nwr["waterway"="dock"](BOX););(._;>;);out body;
 """
-import json, math, re, struct, sys
+import gzip, json, math, re, struct, sys
 from pathlib import Path
 import numpy as np
 import shapefile, shapely
@@ -19,9 +31,14 @@ R = 3440.065
 STEP = 0.5
 DEEP = 0.1
 shp_path, passages_rs, site = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
+water_files = [Path(p) for p in sys.argv[4:]]
+assert water_files, "canal water polygons are required"
 
-boxes = [tuple(map(float, m)) for m in re.findall(
-    r"corridor:\s*\(\s*(-?[\d.]+),\s*(-?[\d.]+),\s*(-?[\d.]+),\s*(-?[\d.]+)\s*\)", passages_rs.read_text())]
+LOCK_CANALS = ("Panama Canal", "Kiel Canal")
+boxes = [tuple(map(float, m[1:])) for m in re.findall(
+    r'name:\s*"([^"]+)",.*?corridor:\s*\(\s*(-?[\d.]+),\s*(-?[\d.]+),\s*(-?[\d.]+),\s*(-?[\d.]+)\s*\)',
+    passages_rs.read_text(), re.S) if m[0] in LOCK_CANALS]
+assert len(boxes) == len(LOCK_CANALS), boxes
 boxes.append((-80.02, 9.25, -79.92, 9.34))
 
 
@@ -94,20 +111,44 @@ polys = [shapely.geometry.shape(rd.shape(i).__geo_interface__) for i in ids]
 for p in polys:
     shapely.prepare(p)
 tree = STRtree(polys)
+
+# canal water: polygons from the water files, used only inside the lock canal boxes
+water = []
+for f in water_files:
+    for line in (gzip.open(f, "rt") if f.suffix == ".gz" else open(f)):
+        g = shapely.geometry.shape(json.loads(line.lstrip("\x1e"))["geometry"])
+        water += list(g.geoms) if g.geom_type == "MultiPolygon" else [g]
+for p in water:
+    shapely.prepare(p)
+wtree = STRtree(water)
+print("canal water polygons", len(water), flush=True)
+
+
+def in_boxes(pts):
+    return np.any([(pts[:, 0] >= x0) & (pts[:, 0] <= x1) & (pts[:, 1] >= y0) & (pts[:, 1] <= y1)
+                   for x0, y0, x1, y1 in boxes], axis=0)
+
+
 inside = np.ones(len(allpts), bool)
 for ox, oy in offs:
-    q = shapely.points(np.column_stack([allpts[:, 0] + ox, np.clip(allpts[:, 1] + oy, -90, 90)]))
+    pts = np.column_stack([allpts[:, 0] + ox, np.clip(allpts[:, 1] + oy, -90, 90)])
+    q = shapely.points(pts)
     a, _ = tree.query(q, predicate="within")
     m = np.zeros(len(allpts), bool)
     m[a] = True
+    box = np.flatnonzero(m & in_boxes(pts))
+    a, _ = wtree.query(q[box], predicate="within")
+    m[box[a]] = False
     inside &= m
-print("land samples before passage boxes", int(inside.sum()), flush=True)
+print("land samples", int(inside.sum()), flush=True)
 
 # 4. is each requested point on OSM land?
 summary = json.load(open(site / "summary.json"))
 def on_land(lon, lat):
     p = shapely.points([[lon, lat]])
     a, _ = tree.query(p, predicate="within")
+    if len(a) and in_boxes(np.array([[lon, lat]]))[0]:
+        return not len(wtree.query(p, predicate="within")[0])
     return bool(len(a))
 for r in summary["routes"]:
     r["from_on_land"] = on_land(r["from"][1], r["from"][0])
@@ -122,8 +163,7 @@ for rid, tool, samples, seg in jobs:
     pos += n
     land, runs, cur = 0.0, [], []
     for (lo, la), m, sl in zip(samples, mask, seg):
-        w = wrap(lo)
-        if m and not any(x0 <= w <= x1 and y0 <= la <= y1 for x0, y0, x1, y1 in boxes):
+        if m:
             land += sl
             cur.append([round(lo, 4), round(la, 4), round(sl, 3)])
         elif cur:

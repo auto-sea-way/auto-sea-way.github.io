@@ -60,6 +60,8 @@ for r in summary["routes"]:
         m.pop("land_osm_nm", None)
     json.dump(g, open(site / "routes" / f"{r['id']}.json", "w"), separators=(",", ":"))
 summary["method"] = {"end_nm": END_NM, "ne_step_nm": 2.0, "ne_deep_nm": 3.0, "osm_step_nm": 0.5, "osm_deep_nm": 0.1,
-                     "earth_radius_nm": R}
+                     "earth_radius_nm": R, "ne_skips": "all passage boxes of auto-sea-way",
+                     "osm_skips": "nothing; OSM water polygons count as water inside the Panama and Kiel canal boxes",
+                     "compared": "only lines with no land on the way (OSM check)"}
 json.dump(summary, open(site / "summary.json", "w"), indent=1)
 print("done")

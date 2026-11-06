@@ -89,5 +89,23 @@
   "light": "#6A4FB3",
   "dark": "#8C73DB",
   "dash": [2, 2, 2, 5]
+ },
+ "arcnautical": {
+  "name": "@arcnautical/maritime-routing",
+  "short": "arcnautical",
+  "version": "1.0.1",
+  "url": "https://github.com/arcnautical/maritime-routing",
+  "language": "TypeScript",
+  "license": "MIT",
+  "network": "0.05° ocean grid from OpenStreetMap water polygons (about 5.5 km), with forced cells for narrow passages",
+  "install": "npm install @arcnautical/maritime-routing",
+  "last_commit": "2026-09-18",
+  "settings": "findOceanPath(fromLat, fromLon, toLat, toLon), the API for coordinates, with the defaults. Its port API (computeRoute) takes only UN/LOCODE port codes, so it cannot route between our coordinates.",
+  "size": "0.6 MB installed (590 KB unpacked, as npm reports it; the planet grid is a 106 KB file), no dependencies",
+  "memory": "369 to 700 MB peak for the Node.js process (three runs)",
+  "time_note": "Measured in the same Node.js process on 6 November 2026, with its route cache cleared before every call.",
+  "light": "#0000F0",
+  "dark": "#9C00FC",
+  "dash": [8, 3]
  }
 }
