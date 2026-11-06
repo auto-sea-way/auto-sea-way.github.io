@@ -124,7 +124,7 @@ def unwrap(coords):
     return out
 
 
-def rnd(coords, nd=4):
+def rnd(coords, nd=6):  # 0.1 m: osm_land.py checks these lines, and 4 decimals (up to 7 m) moved lines over canal banks
     return [[round(x, nd), round(y, nd)] for x, y in coords]
 
 

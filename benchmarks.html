@@ -54,7 +54,7 @@
 <caption>Routers in the test</caption>
 <thead><tr><th scope="col">Router</th><th scope="col">Version</th><th scope="col">Language</th><th scope="col">License</th><th scope="col">Last commit</th><th scope="col">Network</th><th scope="col">Install</th><th scope="col">Size on disk</th><th scope="col">Memory in this test</th></tr></thead>
 <tbody>
-<tr><th scope="row"><a href="https://github.com/auto-sea-way/asw">auto-sea-way</a></th><td class="text">0.11.1</td><td class="text">Rust</td><td class="text">MIT or Apache-2.0</td><td class="text">2026-11-05</td><td class="text">Generated from OpenStreetMap land polygons: 39 million H3 cells</td><td class="text">Docker image, or a binary plus the planet graph file</td><td class="text">1.43 GB graph (538 MB download) and a 10 MB binary</td><td class="text">409 MB resident on macOS after the test (the graph is memory-mapped; about 1.4 GB on Linux with the whole file in cache)</td></tr>
+<tr><th scope="row"><a href="https://github.com/auto-sea-way/asw">auto-sea-way</a></th><td class="text">0.11.2</td><td class="text">Rust</td><td class="text">MIT or Apache-2.0</td><td class="text">2026-11-06</td><td class="text">Generated from OpenStreetMap land polygons: 39 million H3 cells</td><td class="text">Docker image, or a binary plus the planet graph file</td><td class="text">1.43 GB graph (538 MB download) and a 10 MB binary</td><td class="text">0.4 to 1.2 GB resident on macOS in two runs of the test (the graph is memory-mapped, so this depends on how much of the file is in the page cache; about 1.4 GB on Linux with the whole file in cache)</td></tr>
 <tr><th scope="row"><a href="https://github.com/genthalili/searoute-py">searoute-py</a></th><td class="text">1.6.0</td><td class="text">Python</td><td class="text">Apache-2.0</td><td class="text">2026-05-17</td><td class="text">MARNET shipping lanes (Eurostat)</td><td class="text">pip install searoute</td><td class="text">7 MB package, plus networkx</td><td class="text">373 MB peak for the Python process</td></tr>
 <tr><th scope="row"><a href="https://github.com/connor-makowski/scgraph">scgraph</a></th><td class="text">3.6.0</td><td class="text">Python (C++ extension)</td><td class="text">MIT</td><td class="text">2026-10-08</td><td class="text">marnet geograph (from searoute)</td><td class="text">pip install scgraph</td><td class="text">1.3 MB package and a 0.8 MB network file</td><td class="text">66 MB peak for the Python process</td></tr>
 <tr><th scope="row"><a href="https://github.com/mayurrawte/searoute-ts">searoute-ts</a></th><td class="text">2.3.1</td><td class="text">TypeScript</td><td class="text">MIT</td><td class="text">2026-10-14</td><td class="text">MARNET 20 km (Eurostat), the finest network in the package</td><td class="text">npm install searoute-ts</td><td class="text">7 MB package, 24 MB with dependencies</td><td class="text">248 MB peak for the Node.js process</td></tr>
@@ -85,11 +85,11 @@
 <thead><tr><th scope="col">Router</th><th scope="col">Stays on water</th><th scope="col">Land crossed, nm</th></tr></thead>
 <tbody>
 <tr><th scope="row"><a href="https://github.com/auto-sea-way/asw">auto-sea-way</a></th><td>16 of 16</td><td>0.0</td></tr>
-<tr><th scope="row"><a href="https://github.com/genthalili/searoute-py">searoute-py</a></th><td>10 of 16</td><td>98.7</td></tr>
-<tr><th scope="row"><a href="https://github.com/connor-makowski/scgraph">scgraph</a></th><td>9 of 16</td><td>148.6</td></tr>
-<tr><th scope="row"><a href="https://github.com/mayurrawte/searoute-ts">searoute-ts</a></th><td>5 of 16</td><td>154.5</td></tr>
-<tr><th scope="row"><a href="https://github.com/eurostat/searoute">eurostat/searoute</a> (inactive since 2022)</th><td>9 of 16</td><td>112.9</td></tr>
-<tr><th scope="row"><a href="https://github.com/arcnautical/maritime-routing">@arcnautical/maritime-routing</a></th><td>6 of 16</td><td>198.1</td></tr>
+<tr><th scope="row"><a href="https://github.com/genthalili/searoute-py">searoute-py</a></th><td>10 of 16</td><td>87.9</td></tr>
+<tr><th scope="row"><a href="https://github.com/connor-makowski/scgraph">scgraph</a></th><td>9 of 16</td><td>148.2</td></tr>
+<tr><th scope="row"><a href="https://github.com/mayurrawte/searoute-ts">searoute-ts</a></th><td>5 of 16</td><td>146.7</td></tr>
+<tr><th scope="row"><a href="https://github.com/eurostat/searoute">eurostat/searoute</a> (inactive since 2022)</th><td>9 of 16</td><td>123.3</td></tr>
+<tr><th scope="row"><a href="https://github.com/arcnautical/maritime-routing">@arcnautical/maritime-routing</a></th><td>6 of 16</td><td>194.3</td></tr>
 </tbody></table></div>
 <p class="small">The routes: English Channel, Aegean Hop, Strait of Gibraltar, Baltic Crossing, Balearic Sea, Florida Strait, Suez Canal, Panama Canal, Kiel Canal, Corinth Canal, Bosphorus, Dardanelles, Malacca Strait, Singapore Strait, Messina Strait, Dover Strait.</p>
 <!-- /build:short -->
@@ -114,10 +114,10 @@
 <tr><th scope="row"><a class="water" href="./#tokyo-seattle">Tokyo to Seattle</a></th><td>4,166.1</td><td class="best">4,264.1</td><td class="">4,296.7</td><td class="land">4,244.9</td><td class="land">4,626.1</td><td class="">4,628.8</td><td class="land">4,434.0</td></tr>
 <tr><th scope="row"><a class="water" href="./#suez-canal">Suez Canal</a></th><td>127.9</td><td class="best">148.4</td><td class="land">159.9</td><td class="land">160.5</td><td class="land">180.0</td><td class="land">156.1</td><td class="land">147.6</td></tr>
 <tr><th scope="row"><a class="water" href="./#panama-canal">Panama Canal</a></th><td>50.6</td><td class="best">56.1</td><td class="land">54.9</td><td class="land">54.9</td><td class="land">53.3</td><td class="land">55.9</td><td class="land">50.6</td></tr>
-<tr><th scope="row"><a class="water" href="./#kiel-canal">Kiel Canal</a></th><td>39.6</td><td class="best">96.7</td><td class="land">557.5</td><td class="land">570.5</td><td class="land">108.1</td><td class="land">116.7</td><td class="land">93.0</td></tr>
+<tr><th scope="row"><a class="water" href="./#kiel-canal">Kiel Canal</a></th><td>48.4</td><td class="best">55.6</td><td class="land">544.2</td><td class="land">557.2</td><td class="land">54.1</td><td class="land">63.8</td><td class="land">55.6</td></tr>
 <tr><th scope="row"><a class="water" href="./#corinth-canal">Corinth Canal</a></th><td>6.3</td><td class="best">6.6</td><td class="land">7.5</td><td class="land">6.5</td><td class="land">12.1</td><td class="land">7.7</td><td class="land">6.8</td></tr>
 <tr><th scope="row"><a class="water" href="./#bosphorus">Bosphorus</a></th><td>32.1</td><td class="best">33.5</td><td class="land">43.6</td><td class="land">43.6</td><td class="land">37.4</td><td class="land">33.0</td><td class="land">33.6</td></tr>
-<tr><th scope="row"><a class="water" href="./#dardanelles">Dardanelles</a></th><td>39.8</td><td class="best">48.3</td><td class="land">44.7</td><td class="land">212.3</td><td class="land">40.4</td><td class="land">96.0</td><td class="land">40.6</td></tr>
+<tr><th scope="row"><a class="water" href="./#dardanelles">Dardanelles</a></th><td>34.8</td><td class="best">36.5</td><td class="land">44.5</td><td class="land">211.5</td><td class="land">35.2</td><td class="land">95.2</td><td class="land">36.5</td></tr>
 <tr><th scope="row"><a class="water" href="./#malacca-strait">Malacca Strait</a></th><td>28.5</td><td class="">33.8</td><td class="">54.9</td><td class="">31.1</td><td class="">32.4</td><td class="">36.6</td><td class="best">30.7</td></tr>
 <tr><th scope="row"><a class="water" href="./#singapore-strait">Singapore Strait</a></th><td>24.5</td><td class="">31.2</td><td class="">32.6</td><td class="">90.3</td><td class="land">69.6</td><td class="">72.3</td><td class="best">27.3</td></tr>
 <tr><th scope="row"><a class="water" href="./#messina-strait">Messina Strait</a></th><td>15.0</td><td class="">20.0</td><td class="">26.4</td><td class="">26.4</td><td class="land">25.8</td><td class="best">18.0</td><td class="land">15.2</td></tr>
@@ -141,7 +141,7 @@
 <tr><th scope="row"><a class="water" href="./#panama-singapore">Panama to Singapore</a></th><td>10,165.8</td><td class="best">10,554.3</td><td class="land">10,665.9</td><td class="land">10,686.6</td><td class="land">10,616.9</td><td class="land">10,624.0</td><td class="land">14,528.7</td></tr>
 <tr><th scope="row"><a class="water" href="./#new-york-panama">New York to Panama</a></th><td>1,932.7</td><td class="best">2,026.2</td><td class="land">2,043.4</td><td class="land">2,036.3</td><td class="land">2,023.0</td><td class="land">2,024.7</td><td class="land">2,051.5</td></tr>
 <tr><th scope="row"><a class="water" href="./#cape-of-good-hope-singapore">Cape of Good Hope to Singapore</a></th><td>5,221.3</td><td class="best">5,572.5</td><td class="land">5,747.1</td><td class="land">5,671.4</td><td class="land">5,758.2</td><td class="land">5,808.1</td><td class="land">5,796.4</td></tr>
-<tr><th scope="row"><a class="water" href="./#cape-town-new-york">Cape Town to New York</a></th><td>6,784.1</td><td class="best">6,884.3</td><td class="land">6,936.0</td><td class="land">6,923.5</td><td class="land">6,860.7</td><td class="land">6,866.9</td><td class="land">6,939.8</td></tr>
+<tr><th scope="row"><a class="water" href="./#cape-town-new-york">Cape Town to New York</a></th><td>6,784.1</td><td class="best">6,791.1</td><td class="land">6,936.0</td><td class="land">6,923.5</td><td class="land">6,860.7</td><td class="land">6,866.9</td><td class="land">6,939.8</td></tr>
 <tr><th scope="row"><a class="water" href="./#lisboa-new-york">Lisboa to New York</a></th><td>2,929.2</td><td class="best">2,949.5</td><td class="">2,979.5</td><td class="land">2,976.0</td><td class="land">2,969.1</td><td class="land">2,979.3</td><td class="land">3,032.3</td></tr>
 <tr><th scope="row"><a class="water" href="./#strait-of-gibraltar-cape-town">Strait of Gibraltar to Cape Town</a></th><td>4,407.6</td><td class="best">5,046.8</td><td class="land">5,214.5</td><td class="land">5,201.2</td><td class="">5,135.1</td><td class="">5,135.4</td><td class="land">5,232.3</td></tr>
 </tbody></table></div>
@@ -170,7 +170,7 @@
 <tr><th scope="row"><a class="water" href="./#panama-singapore">Panama to Singapore</a></th><td>10,505</td><td class="best">+0.47&nbsp;%</td><td class="land">+1.53&nbsp;%</td><td class="land">+1.73&nbsp;%</td><td class="land">+1.07&nbsp;%</td><td class="land">+1.13&nbsp;%</td><td class="land">+38.30&nbsp;%</td></tr>
 <tr><th scope="row"><a class="water" href="./#new-york-panama">New York to Panama</a></th><td>2,016</td><td class="best">+0.51&nbsp;%</td><td class="land">+1.36&nbsp;%</td><td class="land">+1.01&nbsp;%</td><td class="land">+0.35&nbsp;%</td><td class="land">+0.43&nbsp;%</td><td class="land">+1.76&nbsp;%</td></tr>
 <tr><th scope="row"><a class="water" href="./#cape-of-good-hope-singapore">Cape of Good Hope to Singapore</a></th><td>5,579</td><td class="best">-0.12&nbsp;%</td><td class="land">+3.01&nbsp;%</td><td class="land">+1.66&nbsp;%</td><td class="land">+3.21&nbsp;%</td><td class="land">+4.11&nbsp;%</td><td class="land">+3.90&nbsp;%</td></tr>
-<tr><th scope="row"><a class="water" href="./#cape-town-new-york">Cape Town to New York</a></th><td>6,786</td><td class="best">+1.45&nbsp;%</td><td class="land">+2.21&nbsp;%</td><td class="land">+2.03&nbsp;%</td><td class="land">+1.10&nbsp;%</td><td class="land">+1.19&nbsp;%</td><td class="land">+2.27&nbsp;%</td></tr>
+<tr><th scope="row"><a class="water" href="./#cape-town-new-york">Cape Town to New York</a></th><td>6,786</td><td class="best">+0.08&nbsp;%</td><td class="land">+2.21&nbsp;%</td><td class="land">+2.03&nbsp;%</td><td class="land">+1.10&nbsp;%</td><td class="land">+1.19&nbsp;%</td><td class="land">+2.27&nbsp;%</td></tr>
 <tr><th scope="row"><a class="water" href="./#lisboa-new-york">Lisboa to New York</a></th><td>2,980</td><td class="">-1.02&nbsp;%</td><td class="best">-0.02&nbsp;%</td><td class="land">-0.13&nbsp;%</td><td class="land">-0.37&nbsp;%</td><td class="land">-0.02&nbsp;%</td><td class="land">+1.76&nbsp;%</td></tr>
 <tr><th scope="row"><a class="water" href="./#strait-of-gibraltar-cape-town">Strait of Gibraltar to Cape Town</a></th><td>5,024</td><td class="best">+0.45&nbsp;%</td><td class="land">+3.79&nbsp;%</td><td class="land">+3.53&nbsp;%</td><td class="">+2.21&nbsp;%</td><td class="">+2.22&nbsp;%</td><td class="land">+4.15&nbsp;%</td></tr>
 </tbody></table></div>
@@ -189,16 +189,16 @@
 <tr><th scope="row"><a class="water" href="./#malacca-route">Malacca Route</a></th><td class=""></td><td class=""></td><td class="land">2.5</td><td class=""></td><td class=""></td><td class="land">10.1</td></tr>
 <tr><th scope="row"><a class="water" href="./#tasman-sea">Tasman Sea</a></th><td class=""></td><td class=""></td><td class="land">3.0</td><td class="land">4.5</td><td class="land">4.5</td><td class="land">10.8</td></tr>
 <tr><th scope="row"><a class="water" href="./#south-atlantic">South Atlantic</a></th><td class=""></td><td class=""></td><td class="land">5.5</td><td class="land">2.5</td><td class=""></td><td class=""></td></tr>
-<tr><th scope="row"><a class="water" href="./#north-atlantic">North Atlantic</a></th><td class=""></td><td class=""></td><td class="land">5.4</td><td class="land">15.7</td><td class="land">6.9</td><td class="land">19.2</td></tr>
-<tr><th scope="row"><a class="water" href="./#rotterdam-singapore">Rotterdam to Singapore</a></th><td class=""></td><td class="land">55.5</td><td class="land">142.1 (47.6)</td><td class="land">61.9</td><td class="land">46.0</td><td class="land">7,728.0 (7,576.9)</td></tr>
+<tr><th scope="row"><a class="water" href="./#north-atlantic">North Atlantic</a></th><td class=""></td><td class=""></td><td class="land">5.4</td><td class="land">15.2</td><td class="land">6.9</td><td class="land">19.2</td></tr>
+<tr><th scope="row"><a class="water" href="./#rotterdam-singapore">Rotterdam to Singapore</a></th><td class=""></td><td class="land">55.5</td><td class="land">142.1 (47.6)</td><td class="land">61.9</td><td class="land">46.0</td><td class="land">7,726.3 (7,576.9)</td></tr>
 <tr><th scope="row"><a class="water" href="./#shanghai-rotterdam">Shanghai to Rotterdam</a></th><td class=""></td><td class="land">55.1</td><td class="land">106.3 (35.9)</td><td class="land">109.7 (2.0)</td><td class="land">92.8 (2.0)</td><td class="land">14.2</td></tr>
 <tr><th scope="row"><a class="water" href="./#tokyo-seattle">Tokyo to Seattle</a></th><td class=""></td><td class=""></td><td class="land">27.2 (22.6)</td><td class="land">4.4</td><td class=""></td><td class="land">3.8</td></tr>
 <tr><th scope="row"><a class="water" href="./#suez-canal">Suez Canal</a></th><td class=""></td><td class="land">56.1</td><td class="land">51.3</td><td class="land">55.9</td><td class="land">46.5</td><td class="land">78.8</td></tr>
 <tr><th scope="row"><a class="water" href="./#panama-canal">Panama Canal</a></th><td class=""></td><td class="land">7.6</td><td class="land">8.0</td><td class="land">16.2</td><td class="land">13.2</td><td class="land">24.4</td></tr>
-<tr><th scope="row"><a class="water" href="./#kiel-canal">Kiel Canal</a></th><td class=""></td><td class="land">11.8</td><td class="land">26.3</td><td class="land">42.5</td><td class="land">29.9</td><td class="land">57.2 (5.2)</td></tr>
+<tr><th scope="row"><a class="water" href="./#kiel-canal">Kiel Canal</a></th><td class=""></td><td class="land">1.0</td><td class="land">15.5</td><td class="land">39.6</td><td class="land">29.9</td><td class="land">51.4 (5.2)</td></tr>
 <tr><th scope="row"><a class="water" href="./#corinth-canal">Corinth Canal</a></th><td class=""></td><td class="land">0.5</td><td class="land">2.4</td><td class="land">3.8</td><td class="land">2.7</td><td class="land">2.9</td></tr>
 <tr><th scope="row"><a class="water" href="./#bosphorus">Bosphorus</a></th><td class=""></td><td class="land">0.5</td><td class="land">0.5</td><td class="land">10.0</td><td class="land">6.5</td><td class="land">10.6</td></tr>
-<tr><th scope="row"><a class="water" href="./#dardanelles">Dardanelles</a></th><td class=""></td><td class="land">22.2</td><td class="land">57.7 (13.9)</td><td class="land">17.3</td><td class="land">10.1</td><td class="land">20.7</td></tr>
+<tr><th scope="row"><a class="water" href="./#dardanelles">Dardanelles</a></th><td class=""></td><td class="land">22.2</td><td class="land">68.1 (13.9)</td><td class="land">12.4</td><td class="land">20.5</td><td class="land">22.7</td></tr>
 <tr><th scope="row"><a class="water" href="./#malacca-strait">Malacca Strait</a></th><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td></tr>
 <tr><th scope="row"><a class="water" href="./#singapore-strait">Singapore Strait</a></th><td class=""></td><td class=""></td><td class=""></td><td class="land">2.5</td><td class=""></td><td class=""></td></tr>
 <tr><th scope="row"><a class="water" href="./#messina-strait">Messina Strait</a></th><td class=""></td><td class=""></td><td class=""></td><td class="land">0.5</td><td class=""></td><td class="land">1.4</td></tr>
@@ -219,7 +219,7 @@
 <tr><th scope="row"><a class="water" href="./#yokohama-san-francisco">Yokohama to San Francisco</a></th><td class=""></td><td class="land">2.4</td><td class="land">13.8 (3.8)</td><td class="land">5.9</td><td class="land">0.5</td><td class="land">4.3</td></tr>
 <tr><th scope="row"><a class="water" href="./#honolulu-san-francisco">Honolulu to San Francisco</a></th><td class="land">0.4</td><td class="land">4.4</td><td class="land">8.3</td><td class="land">4.2</td><td class=""></td><td class="land">3.6</td></tr>
 <tr><th scope="row"><a class="water" href="./#honolulu-sydney">Honolulu to Sydney</a></th><td class="land">0.4</td><td class="land">4.4</td><td class="land">4.4</td><td class="land">4.2</td><td class="land">3.0</td><td class="land">5.4</td></tr>
-<tr><th scope="row"><a class="water" href="./#panama-singapore">Panama to Singapore</a></th><td class=""></td><td class="land">0.9</td><td class="land">3.5</td><td class="land">10.0 (2.0)</td><td class="land">21.5 (2.0)</td><td class="land">8,884.1 (8,323.9)</td></tr>
+<tr><th scope="row"><a class="water" href="./#panama-singapore">Panama to Singapore</a></th><td class=""></td><td class="land">0.9</td><td class="land">3.5</td><td class="land">10.0 (2.0)</td><td class="land">21.5 (2.0)</td><td class="land">8,883.6 (8,323.9)</td></tr>
 <tr><th scope="row"><a class="water" href="./#new-york-panama">New York to Panama</a></th><td class=""></td><td class="land">2.8</td><td class="land">10.7</td><td class="land">29.5</td><td class="land">20.7</td><td class="land">35.1</td></tr>
 <tr><th scope="row"><a class="water" href="./#cape-of-good-hope-singapore">Cape of Good Hope to Singapore</a></th><td class=""></td><td class="land">23.3 (11.4)</td><td class="land">4.5</td><td class="land">30.1 (7.5)</td><td class="land">24.6 (7.5)</td><td class="land">5.6</td></tr>
 <tr><th scope="row"><a class="water" href="./#cape-town-new-york">Cape Town to New York</a></th><td class=""></td><td class="land">5.0</td><td class="land">19.0 (2.0)</td><td class="land">7.3</td><td class="land">5.0</td><td class="land">2.0</td></tr>
@@ -235,33 +235,33 @@
     <h2>Speed benchmark of auto-sea-way</h2>
     <p>The <code>asw bench</code> command routes the 23 benchmark routes many times and writes these tables. They used to be in the README.</p>
 <!-- build:aswbench -->
-<p>auto-sea-way 0.11.1 on the planet graph (39,068,079 nodes / 296,619,250 edges), 50 runs of each route, measured in the program without HTTP on 2026-11-05, with the default settings (no shore buffer). Distances count only the water legs.</p>
+<p>auto-sea-way 0.11.2 on the planet graph (39,068,079 nodes / 296,619,250 edges), 50 runs of each route, measured in the program without HTTP on 2026-11-06, with the default settings (no shore buffer). Distances count only the water legs.</p>
 <div class="scroll"><table><caption>Sailing routes</caption>
 <thead><tr><th scope="col">Route</th><th scope="col">Distance</th><th scope="col">Min</th><th scope="col">Median</th><th scope="col">95th percentile</th><th scope="col">Max</th><th scope="col">Graph hops, then legs</th></tr></thead>
-<tbody><tr><th scope="row" class="water">English Channel</th><td>22.1 nm</td><td>268 µs</td><td>269 µs</td><td>303 µs</td><td>317 µs</td><td>34&gt;4</td></tr>
-<tr><th scope="row" class="water">Aegean Hop</th><td>25.3 nm</td><td>786 µs</td><td>828 µs</td><td>854 µs</td><td>868 µs</td><td>50&gt;6</td></tr>
-<tr><th scope="row" class="water">Strait of Gibraltar</th><td>29.4 nm</td><td>641 µs</td><td>655 µs</td><td>681 µs</td><td>709 µs</td><td>64&gt;5</td></tr>
-<tr><th scope="row" class="water">Baltic Crossing</th><td>41.9 nm</td><td>1.6 ms</td><td>1.7 ms</td><td>1.7 ms</td><td>1.8 ms</td><td>54&gt;5</td></tr>
-<tr><th scope="row" class="water">Balearic Sea</th><td>127.6 nm</td><td>2.6 ms</td><td>2.6 ms</td><td>2.7 ms</td><td>2.8 ms</td><td>113&gt;7</td></tr>
-<tr><th scope="row" class="water">Florida Strait</th><td>89.0 nm</td><td>317 µs</td><td>329 µs</td><td>360 µs</td><td>395 µs</td><td>22&gt;4</td></tr>
-<tr><th scope="row" class="water">Tasman Sea</th><td>1264.7 nm</td><td>33.8 ms</td><td>34.7 ms</td><td>35.4 ms</td><td>35.6 ms</td><td>337&gt;11</td></tr>
-<tr><th scope="row" class="water">South Atlantic</th><td>3272.3 nm</td><td>16.7 ms</td><td>16.8 ms</td><td>17.3 ms</td><td>20.8 ms</td><td>149&gt;7</td></tr>
-<tr><th scope="row" class="water">North Atlantic</th><td>3047.1 nm</td><td>215.5 ms</td><td>219.4 ms</td><td>237.9 ms</td><td>240.8 ms</td><td>399&gt;17</td></tr>
-<tr><th scope="row" class="water">Rotterdam to Singapore</th><td>8234.2 nm</td><td>435.5 ms</td><td>445.4 ms</td><td>461.7 ms</td><td>467.5 ms</td><td>3157&gt;58</td></tr>
-<tr><th scope="row" class="water">Shanghai to Rotterdam</th><td>10353.0 nm</td><td>724.4 ms</td><td>733.4 ms</td><td>753.5 ms</td><td>783.5 ms</td><td>4282&gt;87</td></tr>
-<tr><th scope="row" class="water">Tokyo to Seattle</th><td>4237.6 nm</td><td>351.9 ms</td><td>355.3 ms</td><td>367.6 ms</td><td>375.1 ms</td><td>1630&gt;40</td></tr></tbody></table></div>
+<tbody><tr><th scope="row" class="water">English Channel</th><td>22.1 nm</td><td>282 µs</td><td>296 µs</td><td>358 µs</td><td>379 µs</td><td>34&gt;4</td></tr>
+<tr><th scope="row" class="water">Aegean Hop</th><td>25.3 nm</td><td>783 µs</td><td>788 µs</td><td>814 µs</td><td>817 µs</td><td>50&gt;6</td></tr>
+<tr><th scope="row" class="water">Strait of Gibraltar</th><td>29.4 nm</td><td>622 µs</td><td>628 µs</td><td>671 µs</td><td>699 µs</td><td>64&gt;5</td></tr>
+<tr><th scope="row" class="water">Baltic Crossing</th><td>41.9 nm</td><td>1.6 ms</td><td>1.6 ms</td><td>1.7 ms</td><td>1.9 ms</td><td>54&gt;5</td></tr>
+<tr><th scope="row" class="water">Balearic Sea</th><td>127.6 nm</td><td>2.5 ms</td><td>2.5 ms</td><td>2.6 ms</td><td>2.7 ms</td><td>113&gt;7</td></tr>
+<tr><th scope="row" class="water">Florida Strait</th><td>89.0 nm</td><td>334 µs</td><td>341 µs</td><td>358 µs</td><td>366 µs</td><td>22&gt;4</td></tr>
+<tr><th scope="row" class="water">Tasman Sea</th><td>1264.7 nm</td><td>33.4 ms</td><td>33.5 ms</td><td>36.4 ms</td><td>58.3 ms</td><td>337&gt;11</td></tr>
+<tr><th scope="row" class="water">South Atlantic</th><td>3272.3 nm</td><td>16.4 ms</td><td>16.5 ms</td><td>16.6 ms</td><td>16.7 ms</td><td>149&gt;7</td></tr>
+<tr><th scope="row" class="water">North Atlantic</th><td>3047.1 nm</td><td>211.4 ms</td><td>213.0 ms</td><td>216.4 ms</td><td>226.4 ms</td><td>399&gt;17</td></tr>
+<tr><th scope="row" class="water">Rotterdam to Singapore</th><td>8234.2 nm</td><td>434.9 ms</td><td>437.9 ms</td><td>446.6 ms</td><td>455.0 ms</td><td>3157&gt;58</td></tr>
+<tr><th scope="row" class="water">Shanghai to Rotterdam</th><td>10353.0 nm</td><td>726.7 ms</td><td>728.4 ms</td><td>736.5 ms</td><td>742.2 ms</td><td>4282&gt;87</td></tr>
+<tr><th scope="row" class="water">Tokyo to Seattle</th><td>4237.6 nm</td><td>354.8 ms</td><td>356.6 ms</td><td>360.8 ms</td><td>363.9 ms</td><td>1630&gt;40</td></tr></tbody></table></div>
 <div class="scroll"><table><caption>Passages</caption>
 <thead><tr><th scope="col">Route</th><th scope="col">Distance</th><th scope="col">Min</th><th scope="col">Median</th><th scope="col">95th percentile</th><th scope="col">Max</th><th scope="col">Graph hops, then legs</th></tr></thead>
-<tbody><tr><th scope="row" class="water">Suez Canal</th><td>141.7 nm</td><td>12.5 ms</td><td>12.7 ms</td><td>12.8 ms</td><td>12.9 ms</td><td>1132&gt;27</td></tr>
-<tr><th scope="row" class="water">Panama Canal</th><td>53.5 nm</td><td>63.0 ms</td><td>63.6 ms</td><td>68.7 ms</td><td>69.1 ms</td><td>1089&gt;55</td></tr>
-<tr><th scope="row" class="water">Kiel Canal</th><td>84.3 nm</td><td>38.7 ms</td><td>38.9 ms</td><td>39.4 ms</td><td>43.0 ms</td><td>1868&gt;55</td></tr>
-<tr><th scope="row" class="water">Corinth Canal</th><td>6.6 nm</td><td>1.3 ms</td><td>1.3 ms</td><td>1.6 ms</td><td>1.7 ms</td><td>361&gt;4</td></tr>
-<tr><th scope="row" class="water">Bosphorus</th><td>32.7 nm</td><td>1.6 ms</td><td>1.7 ms</td><td>1.7 ms</td><td>1.7 ms</td><td>147&gt;9</td></tr>
-<tr><th scope="row" class="water">Dardanelles</th><td>45.1 nm</td><td>1.4 ms</td><td>1.4 ms</td><td>1.4 ms</td><td>1.4 ms</td><td>138&gt;6</td></tr>
+<tbody><tr><th scope="row" class="water">Suez Canal</th><td>141.7 nm</td><td>12.4 ms</td><td>12.5 ms</td><td>12.6 ms</td><td>12.8 ms</td><td>1132&gt;27</td></tr>
+<tr><th scope="row" class="water">Panama Canal</th><td>53.5 nm</td><td>63.1 ms</td><td>63.3 ms</td><td>64.8 ms</td><td>75.3 ms</td><td>1089&gt;55</td></tr>
+<tr><th scope="row" class="water">Kiel Canal</th><td>55.6 nm</td><td>29.2 ms</td><td>29.4 ms</td><td>31.7 ms</td><td>32.5 ms</td><td>1684&gt;51</td></tr>
+<tr><th scope="row" class="water">Corinth Canal</th><td>6.6 nm</td><td>1.3 ms</td><td>1.3 ms</td><td>1.4 ms</td><td>1.4 ms</td><td>361&gt;4</td></tr>
+<tr><th scope="row" class="water">Bosphorus</th><td>32.7 nm</td><td>1.6 ms</td><td>1.6 ms</td><td>1.7 ms</td><td>1.7 ms</td><td>147&gt;9</td></tr>
+<tr><th scope="row" class="water">Dardanelles</th><td>35.4 nm</td><td>1.9 ms</td><td>1.9 ms</td><td>1.9 ms</td><td>2.0 ms</td><td>183&gt;6</td></tr>
 <tr><th scope="row" class="water">Malacca Strait</th><td>28.8 nm</td><td>1.7 ms</td><td>1.7 ms</td><td>1.7 ms</td><td>1.7 ms</td><td>104&gt;8</td></tr>
-<tr><th scope="row" class="water">Singapore Strait</th><td>26.4 nm</td><td>1.1 ms</td><td>1.1 ms</td><td>1.2 ms</td><td>1.2 ms</td><td>52&gt;5</td></tr>
-<tr><th scope="row" class="water">Messina Strait</th><td>16.0 nm</td><td>628 µs</td><td>645 µs</td><td>664 µs</td><td>670 µs</td><td>75&gt;6</td></tr>
-<tr><th scope="row" class="water">Dover Strait</th><td>18.4 nm</td><td>393 µs</td><td>395 µs</td><td>416 µs</td><td>422 µs</td><td>17&gt;5</td></tr></tbody></table></div>
+<tr><th scope="row" class="water">Singapore Strait</th><td>26.4 nm</td><td>1.1 ms</td><td>1.1 ms</td><td>1.1 ms</td><td>1.1 ms</td><td>52&gt;5</td></tr>
+<tr><th scope="row" class="water">Messina Strait</th><td>16.0 nm</td><td>630 µs</td><td>635 µs</td><td>699 µs</td><td>702 µs</td><td>75&gt;6</td></tr>
+<tr><th scope="row" class="water">Dover Strait</th><td>18.4 nm</td><td>394 µs</td><td>397 µs</td><td>412 µs</td><td>424 µs</td><td>17&gt;5</td></tr></tbody></table></div>
 <!-- /build:aswbench -->
     <p class="small">Run it yourself with <code>asw bench --graph asw.graph --iterations 50</code>. The routes are in <a href="https://github.com/auto-sea-way/asw/blob/main/crates/asw-cli/src/bench.rs">bench.rs</a>.</p>
   </div>

@@ -166,7 +166,7 @@ const NOTES = {
   'rotterdam-singapore': 'arcnautical finds no way at sea for these coordinates. It joins parts with straight lines, and they go over Europe and Asia.',
   'panama-singapore': 'arcnautical finds no way at sea for these coordinates. It joins parts with straight lines, and they go over land.',
   'panama-canal': 'The canal has locks, so OpenStreetMap maps it as inland water. Here the land check counts the canal and lake water as water. The straight line of arcnautical goes over the land next to the canal.',
-  'dardanelles': 'The start point is on the narrow land between the Gulf of Saros and the Sea of Marmara. auto-sea-way joins the water on the Saros side and goes down the outer coast of the peninsula. The other routers go through the strait, but their lines cut over its shores.',
+  'dardanelles': 'The auto-sea-way line is the only one that stays on water. The other lines cut over the shores of the strait, and scgraph first goes into the Sea of Marmara.',
   'honolulu-sydney': 'The eurostat/searoute line has two gaps at the 180th meridian (236 nm and 131 nm). They are joined with straight lines here.',
   'kiel-canal': 'searoute-py and scgraph have no Kiel Canal and go around Denmark.',
   'malacca-route': 'The end point is in the town of Phuket. eurostat/searoute ends its line 98 nm from it.',

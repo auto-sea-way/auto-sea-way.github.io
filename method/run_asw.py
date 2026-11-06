@@ -29,6 +29,6 @@ for r in routes:
         res[r["id"]] = {"error": f"{type(e).__name__}: {e}"[:300]}
     print(r["id"], res[r["id"]].get("reported_nm", res[r["id"]].get("error")), flush=True)
 rss = int(subprocess.check_output(["ps", "-o", "rss=", "-p", pid]).decode()) / 1e3
-json.dump({"tool": "asw", "version": "0.11.1", "settings": f"asw serve, GET /route?from=lat,lon&to=lat,lon&shore_buffer={buffer_nm} (canals open, Arctic closed)",
+json.dump({"tool": "asw", "version": info["version"], "settings": f"asw serve, GET /route?from=lat,lon&to=lat,lon&shore_buffer={buffer_nm} (canals open, Arctic closed)",
            "info": info, "http_overhead_s": http_s, "rss_mb_after": rss, "routes": res}, open(out_path, "w"))
 print("http overhead", round(http_s * 1000, 2), "ms; rss after", round(rss), "MB")
